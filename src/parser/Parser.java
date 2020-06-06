@@ -46,13 +46,11 @@ public class Parser {
             } else if (funcM.find() && !stillInFunCall && currentLine.contains("{")) {
                 stillInFunCall = true;
                 funcName = findFunctionName(currentLine);
-                if (countOfBracket == 0 && currentLine.contains("{")) {
                     // injecting code to where the first { is found
-                    currentLine = currentLine.replaceFirst("\\{", "{ \n" +
+                currentLine = currentLine.replaceFirst("\\{", "{ \n" +
                             "        OutputCreator outputCreator = OutputCreator.getTheOutputCreator();\n" +
                             "        outputCreator.addJSON(\""+className+"\", \"Start_\" + \""+funcName+"\");\n");
 
-                }
                 if (currentLine.contains("return")) {
                     currentLine = currentLine.replaceAll(
                             "return",
@@ -62,7 +60,7 @@ public class Parser {
                 }
                 countOfBracket += (int) currentLine.chars().filter(ch -> ch == '{').count();
                 countOfBracket -= (int) currentLine.chars().filter(ch -> ch == '}').count();
-                if (!hasReturn && countOfBracket == 0) {
+                if (!hasReturn && countOfBracket == 0 && currentLine.contains("}")) {
                     int pos = currentLine.lastIndexOf('}');
                     currentLine = currentLine.substring(0,pos) +
                             "    outputCreator.addJSON(\""+className+"\", \"End_\" + \""+funcName+"\");\n"
@@ -85,7 +83,7 @@ public class Parser {
                 }
                 countOfBracket += (int) currentLine.chars().filter(ch -> ch == '{').count();
                 countOfBracket -= (int) currentLine.chars().filter(ch -> ch == '}').count();
-                if (!hasReturn && countOfBracket == 0) {
+                if (!hasReturn && countOfBracket == 0 && currentLine.contains("}")) {
                     int pos = currentLine.lastIndexOf('}');
                     currentLine = currentLine.substring(0,pos) +
                             "    outputCreator.addJSON(\""+className+"\", \"End_\" + \""+funcName+"\");\n"
