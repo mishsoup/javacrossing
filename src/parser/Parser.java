@@ -42,7 +42,9 @@ public class Parser {
                 className = findClassName(currentLine);
                 outputString.append(importString + "\n");
                 outputString.append(currentLine + "\n");
-            } else if (funcM.find() && !stillInFunCall && !currentLine.contains("=")) {
+            } else if (funcM.find() && !stillInFunCall
+                    && !currentLine.contains("=") && !currentLine.contains("abstract")
+            && !currentLine.contains(";")) {
                 stillInFunCall = true;
                 funcName = findFunctionName(currentLine);
                 if (countOfBracket == 0 && currentLine.contains("{")) {

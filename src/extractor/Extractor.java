@@ -1,4 +1,7 @@
 package extractor;
 
-public class Extractor {
+import java.util.Map;
+
+public interface Extractor <K, V> {
+    Map<K, V> extract(String inputPath);
 }

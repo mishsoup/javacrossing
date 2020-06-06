@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="72587607-207c-46e3-8054-08e10c2acaf5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/parser/OldParser.java" afterDir="false" />
+    <list default="true" id="72587607-207c-46e3-8054-08e10c2acaf5" name="Default Changelist" comment="1) update extractor which reads all .java in input package and output the Map&lt;String path, FileContent content&gt;; content is a large string wrapper">
+      <change afterPath="$PROJECT_DIR$/src/extractor/FileContent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/extractor/StringExtractor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/input.music" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/input.music" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/target/classes/libs/Tokenizer.class" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/target/classes/libs/Tokenizer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/random.java" beforeDir="false" afterPath="$PROJECT_DIR$/input/random.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/javacrossing/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/javacrossing/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/javacrossing/extractor/Extractor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/javacrossing/extractor/Extractor.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/javacrossing/parser/Parser.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/javacrossing/parser/Parser.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/extractor/Extractor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/extractor/Extractor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/parser/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/parser/Parser.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -33,12 +35,15 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1cvWoatuKAmTplCOXlajelbp0DZ" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="Downloaded.Files.Path.Enabled" value="true" />
     <property name="Repository.Attach.Annotations" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
@@ -72,6 +77,9 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="72587607-207c-46e3-8054-08e10c2acaf5" name="Default Changelist" comment="" />
@@ -82,51 +90,68 @@
     </task>
     <servers />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="1) update extractor which reads all .java in input package and output the Map&lt;String path, FileContent content&gt;; content is a large string wrapper" />
+    <option name="LAST_COMMIT_MESSAGE" value="1) update extractor which reads all .java in input package and output the Map&lt;String path, FileContent content&gt;; content is a large string wrapper" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="341" y="23" width="1024" height="826" key="#Project_Structure" timestamp="1591409733095">
       <screen x="0" y="23" width="1440" height="826" />
     </state>
     <state x="341" y="23" width="1024" height="826" key="#Project_Structure/0.23.1440.826@0.23.1440.826" timestamp="1591409733095" />
-    <state width="1334" height="244" key="GridCell.Tab.0.bottom" timestamp="1591433787332">
+    <state width="1334" height="244" key="GridCell.Tab.0.bottom" timestamp="1591434672811">
       <screen x="0" y="23" width="1440" height="826" />
     </state>
     <state width="1419" height="476" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1591413492373" />
-    <state width="1334" height="244" key="GridCell.Tab.0.bottom/0.23.1440.826@0.23.1440.826" timestamp="1591433787332" />
+    <state width="1334" height="244" key="GridCell.Tab.0.bottom/0.23.1440.826@0.23.1440.826" timestamp="1591434672811" />
     <state width="1306" height="239" key="GridCell.Tab.0.bottom/0.23.1440.827@0.23.1440.827" timestamp="1591428344787" />
-    <state width="1334" height="244" key="GridCell.Tab.0.center" timestamp="1591433787330">
+    <state width="1334" height="244" key="GridCell.Tab.0.center" timestamp="1591434672810">
       <screen x="0" y="23" width="1440" height="826" />
     </state>
     <state width="1419" height="476" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1591413492370" />
-    <state width="1334" height="244" key="GridCell.Tab.0.center/0.23.1440.826@0.23.1440.826" timestamp="1591433787330" />
+    <state width="1334" height="244" key="GridCell.Tab.0.center/0.23.1440.826@0.23.1440.826" timestamp="1591434672810" />
     <state width="1306" height="239" key="GridCell.Tab.0.center/0.23.1440.827@0.23.1440.827" timestamp="1591428344786" />
-    <state width="1334" height="244" key="GridCell.Tab.0.left" timestamp="1591433787328">
+    <state width="1334" height="244" key="GridCell.Tab.0.left" timestamp="1591434672810">
       <screen x="0" y="23" width="1440" height="826" />
     </state>
     <state width="1419" height="476" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1591413492370" />
-    <state width="1334" height="244" key="GridCell.Tab.0.left/0.23.1440.826@0.23.1440.826" timestamp="1591433787328" />
+    <state width="1334" height="244" key="GridCell.Tab.0.left/0.23.1440.826@0.23.1440.826" timestamp="1591434672810" />
     <state width="1306" height="239" key="GridCell.Tab.0.left/0.23.1440.827@0.23.1440.827" timestamp="1591428344785" />
-    <state width="1334" height="244" key="GridCell.Tab.0.right" timestamp="1591433787332">
+    <state width="1334" height="244" key="GridCell.Tab.0.right" timestamp="1591434672811">
       <screen x="0" y="23" width="1440" height="826" />
     </state>
     <state width="1419" height="476" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1591413492372" />
-    <state width="1334" height="244" key="GridCell.Tab.0.right/0.23.1440.826@0.23.1440.826" timestamp="1591433787332" />
+    <state width="1334" height="244" key="GridCell.Tab.0.right/0.23.1440.826@0.23.1440.826" timestamp="1591434672811" />
     <state width="1306" height="239" key="GridCell.Tab.0.right/0.23.1440.827@0.23.1440.827" timestamp="1591428344786" />
-    <state width="1334" height="244" key="GridCell.Tab.1.bottom" timestamp="1591433787712">
+    <state width="1334" height="244" key="GridCell.Tab.1.bottom" timestamp="1591434673165">
       <screen x="0" y="23" width="1440" height="826" />
     </state>
-    <state width="1334" height="244" key="GridCell.Tab.1.bottom/0.23.1440.826@0.23.1440.826" timestamp="1591433787712" />
-    <state width="1334" height="244" key="GridCell.Tab.1.center" timestamp="1591433787709">
+    <state width="1334" height="244" key="GridCell.Tab.1.bottom/0.23.1440.826@0.23.1440.826" timestamp="1591434673165" />
+    <state width="1334" height="244" key="GridCell.Tab.1.center" timestamp="1591434673164">
       <screen x="0" y="23" width="1440" height="826" />
     </state>
-    <state width="1334" height="244" key="GridCell.Tab.1.center/0.23.1440.826@0.23.1440.826" timestamp="1591433787709" />
-    <state width="1334" height="244" key="GridCell.Tab.1.left" timestamp="1591433787708">
+    <state width="1334" height="244" key="GridCell.Tab.1.center/0.23.1440.826@0.23.1440.826" timestamp="1591434673164" />
+    <state width="1334" height="244" key="GridCell.Tab.1.left" timestamp="1591434673163">
       <screen x="0" y="23" width="1440" height="826" />
     </state>
-    <state width="1334" height="244" key="GridCell.Tab.1.left/0.23.1440.826@0.23.1440.826" timestamp="1591433787708" />
-    <state width="1334" height="244" key="GridCell.Tab.1.right" timestamp="1591433787710">
+    <state width="1334" height="244" key="GridCell.Tab.1.left/0.23.1440.826@0.23.1440.826" timestamp="1591434673163" />
+    <state width="1334" height="244" key="GridCell.Tab.1.right" timestamp="1591434673164">
       <screen x="0" y="23" width="1440" height="826" />
     </state>
-    <state width="1334" height="244" key="GridCell.Tab.1.right/0.23.1440.826@0.23.1440.826" timestamp="1591433787710" />
+    <state width="1334" height="244" key="GridCell.Tab.1.right/0.23.1440.826@0.23.1440.826" timestamp="1591434673164" />
     <state x="356" y="23" width="1024" height="826" key="SettingsEditor" timestamp="1591412806858">
       <screen x="0" y="23" width="1440" height="827" />
     </state>
@@ -142,10 +167,13 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/parser/Parser.java</url>
-          <line>44</line>
-          <option name="timeStamp" value="3" />
+          <line>67</line>
+          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/JavaCrossing$Main.ic" NAME="Main Coverage Results" MODIFIED="1591434524947" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
