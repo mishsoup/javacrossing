@@ -1,20 +1,22 @@
+import extractor.Extractor;
+import extractor.FileContent;
+import extractor.StringExtractor;
 import parser.Parser;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class Main {
     public static void main(String[] args) {
-        Parser testParser = new Parser();
-        String testString = "import parser.Parser;\n" +
-                "\n" +
-                "public class Main {\n" +
-                "    public static void main(String[] args) {\n" +
-                "        Parser testParser = new Parser();\n" +
-                "\n" +
-                "        testParser.parseJavaFile(testString);\n" +
-                "\n" +
-                "    }\n" +
-                "}";
-
-        testParser.parseJavaFile(testString);
+        Parser parser = new Parser();
+        Extractor extractor = new StringExtractor();
+        Map<String, FileContent> fileContents = extractor.extract("input");
+        Map<String, FileContent> newFileContents = new HashMap<>();
+        fileContents.forEach((k, v) -> {
+            String newV = parser.parseJavaFile(v.content);
+            FileContent newFileContent = new FileContent(newV);
+            newFileContents.put(k, newFileContent);
+        });
 
     }
 }
