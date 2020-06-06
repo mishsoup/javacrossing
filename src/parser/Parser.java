@@ -77,13 +77,6 @@ public class Parser {
                 }
                 outputString.append(currentLine + "\n");
             } else if (stillInFunCall){
-                if (countOfBracket == 0 && currentLine.contains("{")) {
-                    // injecting code to where the first { is found
-                    currentLine = currentLine.replaceFirst("\\{", "{ \n" +
-                            "        OutputCreator outputCreator = OutputCreator.getTheOutputCreator();\n" +
-                            "        outputCreator.addJSON(\""+className+"\", \"Start_\" + \""+funcName+"\"); \n");
-
-                }
                 if (currentLine.contains("return")) {
                     currentLine = currentLine.replaceAll(
                             "return",
