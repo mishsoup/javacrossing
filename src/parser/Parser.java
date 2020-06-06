@@ -3,13 +3,14 @@ package parser;
 public class Parser {
 
     OutputCreator outputCreator = OutputCreator.getTheOutputCreator();
-    private final String importString = "import parser.OutputCreator;";
+    private final String importString = "import parser.OutputCreator; \n";
 
-    public void parseJavaFile(String java) {
-        String output = importString + java;
-        // TODO replace the java with the correct code inserted
-        java.replaceAll("regex", "replacement");
-        
+    public String parseJavaFile(String java) {
+        StringBuilder outputString = new StringBuilder(importString);
 
+
+        System.out.println(outputString.toString());
+        return outputString.toString();
     }
+
 }
