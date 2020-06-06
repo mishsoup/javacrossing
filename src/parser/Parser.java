@@ -17,7 +17,11 @@ public class Parser {
         String className = findClassName(javaString);
         StringBuilder outputString = new StringBuilder(importString);
         String[] arrOfJavaWOFunc = javaString.split(functionRegex);
-        outputString.append(arrOfJavaWOFunc[0]);
+        // append all the non function declarations
+        for (int i = 0; i < arrOfJavaWOFunc.length - 2; i ++) {
+            outputString.append(arrOfJavaWOFunc[i]);
+        }
+        // process the function declarations
         Pattern pattern = Pattern.compile(functionRegex);
         Matcher m = pattern.matcher(javaString);
         while (m.find()) {
@@ -68,6 +72,8 @@ public class Parser {
     }
 
     private String findClassName(String javaString) {
+        // regex taken from Stackoverflow post
+        // https://stackoverflow.com/questions/37403641/regex-to-fetch-the-correct-java-class-name
         Pattern pattern = Pattern.compile("(?<=\\n|\\A)(?:public\\s)?(class|interface|enum|abstract class)\\s([^\\n\\s]*)");
         Matcher m = pattern.matcher(javaString);
         if (m.find()) {
@@ -80,6 +86,8 @@ public class Parser {
     }
 
     private Boolean checkIfInterface(String javaString) {
+        // regex taken from Stackoverflow post
+        // https://stackoverflow.com/questions/37403641/regex-to-fetch-the-correct-java-class-name
         Pattern pattern = Pattern.compile("(?<=\\n|\\A)(?:public\\s)?(interface)\\s([^\\n\\s]*)");
         Matcher m = pattern.matcher(javaString);
         if (m.find())
