@@ -4,15 +4,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Parser {
-    // singleton outputcreator class which will extract when the function gets called
-    // and create a json object
-    OutputCreator outputCreator = OutputCreator.getTheOutputCreator();
-
     private final String importString = "import parser.OutputCreator; \n";
-    private final String functionStartString = "";
     // this regex is taken from Stackoverflow post
     // https://stackoverflow.com/questions/68633/regex-that-will-match-a-java-method-declaration
-    private String functionRegex = "(?:(?:public|private|protected|static|final|native|synchronized|abstract|transient)+\\s+)+[$_\\w<>\\[\\]\\s]*\\s+[\\$_\\w]+\\([^\\)]*\\)?\\s*\\{?[^\\}]*\\}?";
+    private final String functionRegex = "(?:(?:public|private|protected|static|final|native|synchronized|abstract|transient)+\\s+)+[$_\\w<>\\[\\]\\s]*\\s+[\\$_\\w]+\\([^\\)]*\\)?\\s*\\{?[^\\}]*\\}?";
 
     public String parseJavaFile(String javaString) {
         // if the java passed in is an interface then no modification required
@@ -20,40 +15,41 @@ public class Parser {
             return javaString;
         }
         String className = findClassName(javaString);
-        // start building the new modified java file as a string
         StringBuilder outputString = new StringBuilder(importString);
-
-        String[] arrOfJavawoFunc = javaString.split(functionRegex);
-        outputString.append(arrOfJavawoFunc[0]);
+        String[] arrOfJavaWOFunc = javaString.split(functionRegex);
+        outputString.append(arrOfJavaWOFunc[0]);
         Pattern pattern = Pattern.compile(functionRegex);
         Matcher m = pattern.matcher(javaString);
         while (m.find()) {
             String funcName = findFunctionName(m.group(0));
             String injectedFunc = injectToFunc(m.group(0), className, funcName);
-            System.out.println(injectedFunc);
-            outputString.append(injectedFunc);
+            outputString.append("\n\n"  + injectedFunc);
         }
 
-        outputString.append(arrOfJavawoFunc[arrOfJavawoFunc.length - 1]);
+        outputString.append(arrOfJavaWOFunc[arrOfJavaWOFunc.length - 1]);
+        System.out.println(outputString.toString());
         return outputString.toString();
     }
 
     private String injectToFunc(String functionString, String className, String funcName) {
         // replacing the first { found
-        String replacedString = functionString.replaceFirst("\\{", "{ \n" +
+        String firstReplacedString = functionString.replaceFirst("\\{", "{ \n" +
                 "        OutputCreator outputCreator = OutputCreator.getTheOutputCreator();\n" +
                 "        outputCreator.addString(\""+className+"\", \"Start_\" + \""+funcName+"\");");
 
-        // if return is found in the function then inject before return
+        // if return is found in the function then inject before all the returns
+        // else just insert before the last } found
         String secondReplacedString;
-        if (replacedString.matches("return")) {
-            // TODO need to find ALL the returns and inject code before them
-            secondReplacedString = "";
+        if (firstReplacedString.contains("return")) {
+            secondReplacedString = firstReplacedString.replaceAll(
+                    "return",
+                    "outputCreator.addString(\""+className+"\", \"End_\" + \""+funcName+"\");\n " +
+                            "       return");
         } else {
-            int pos = replacedString.lastIndexOf('}');
-             secondReplacedString = replacedString.substring(0,pos) +
+            int pos = firstReplacedString.lastIndexOf('}');
+             secondReplacedString = firstReplacedString.substring(0,pos) +
                     "    outputCreator.addString(\""+className+"\", \"End_\" + \""+funcName+"\");\n"
-                    + replacedString.substring(pos+1)
+                    + firstReplacedString.substring(pos+1)
                     + "}";
         }
         return secondReplacedString;
