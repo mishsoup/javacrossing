@@ -1,5 +1,6 @@
 package parser;
 
+import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -8,7 +9,7 @@ public class Parser {
     private final String importString = "import parser.OutputCreator; \n";
     // regex taken from Stackoverflow post
     // https://stackoverflow.com/questions/37403641/regex-to-fetch-the-correct-java-class-name
-    private final String regexForClass = "(?<=\\n|\\A)(?:public\\s)?(class|enum|abstract class)";
+    private final String regexForClass = "(?<=\\n|\\A)(?:public\\s)?(class|interface|enum)\\s([^\\n\\s]*)";
     // regex taken from Stackoverflow post
     // https://stackoverflow.com/questions/35912934/how-to-match-a-method-block-using-regex
     private final String regexForFunc= "((?:(?:public|private|protected|static|final|synchronized|volatile)\\s+)*)\\s*(\\w+)\\s*(\\w+)\\(.*?\\)\\s*";
@@ -18,8 +19,10 @@ public class Parser {
         if (checkIfInterface(javaString)) {
             return javaString;
         }
+        javaString = javaString.replaceAll("import parser.OutputCreator; \n", "");
         // split into string to parse each line
         String javaStringAry[] = javaString.split("\\r?\\n");
+        System.out.println(Arrays.toString(javaStringAry));
         String outputString = processEachLine(javaStringAry);
         // TODO remove this only for testing
         System.out.println(outputString);
@@ -71,6 +74,7 @@ public class Parser {
                 if (countOfBracket == 0 ){
                     stillInFunCall = false;
                     hasReturn = false;
+                    funcName = "Function name not found";
                 }
                 outputString.append(currentLine + "\n");
             } else if (stillInFunCall){
@@ -94,6 +98,7 @@ public class Parser {
                 if (countOfBracket == 0 ){
                     stillInFunCall = false;
                     hasReturn = false;
+                    funcName = "Function name not found";
                 }
                 outputString.append(currentLine + "\n");
             } else {
