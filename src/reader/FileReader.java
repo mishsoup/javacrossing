@@ -1,7 +1,7 @@
-package extractor;
+package reader;
 
 import java.util.Map;
 
-public interface Extractor <K, V> {
+public interface FileReader<K, V> {
     Map<K, V> extract(String inputPath);
 }

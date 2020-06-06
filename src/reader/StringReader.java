@@ -1,4 +1,4 @@
-package extractor;
+package reader;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -11,11 +11,11 @@ import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class StringExtractor implements Extractor<String, FileContent> {
+public class StringReader implements FileReader<String, FileContentString> {
     // key: filePath;     value: fileContent in String form
-    Map<String, FileContent> fileContents = new HashMap<>();
+    Map<String, FileContentString> fileContents = new HashMap<>();
 
-    public Map<String, FileContent> extract(String inputPath) {
+    public Map<String, FileContentString> extract(String inputPath) {
         // produce contents map
         produceFileContentsMap(inputPath);
         return fileContents;
@@ -33,8 +33,8 @@ public class StringExtractor implements Extractor<String, FileContent> {
             try {
                 Path path = Paths.get(filePath);
                 String content1 = Files.readString(path);
-                FileContent fileContent = new FileContent(content1);
-                fileContents.put(filePath, fileContent);
+                FileContentString fileContentString = new FileContentString(content1);
+                fileContents.put(filePath, fileContentString);
             } catch (IOException e) {
                 e.printStackTrace();
             }
