@@ -7,7 +7,7 @@ public class Parser {
     private final String importString = "import parser.OutputCreator; \n";
     // this regex is taken from Stackoverflow post
     // https://stackoverflow.com/questions/68633/regex-that-will-match-a-java-method-declaration
-    private final String functionRegex = "(?:(?:public|private|protected|static|final|native|synchronized|abstract|transient)+\\s+)+[$_\\w<>\\[\\]\\s]*\\s+[\\$_\\w]+\\([^\\)]*\\)?\\s*\\{?[^\\}]*\\}?";
+    private final String functionRegex = "(?:(?:public|private|protected|static|final|native|synchronized|transient)+\\s+)+[$_\\w<>\\[\\]\\s]*\\s+[\\$_\\w]+\\([^\\)]*\\)?\\s*\\{?[^\\}]*\\}?";
 
     public String parseJavaFile(String javaString) {
         // if the java passed in is an interface then no modification required
@@ -39,7 +39,7 @@ public class Parser {
         // injecting code to where the first { is found
         String firstReplacedString = functionString.replaceFirst("\\{", "{ \n" +
                 "        OutputCreator outputCreator = OutputCreator.getTheOutputCreator();\n" +
-                "        outputCreator.addString(\""+className+"\", \"Start_\" + \""+funcName+"\");");
+                "        outputCreator.addJSON(\""+className+"\", \"Start_\" + \""+funcName+"\");");
 
         // if return is found in the function then inject before all the returns
         // else just insert before the last } found
@@ -47,12 +47,12 @@ public class Parser {
         if (firstReplacedString.contains("return")) {
             secondReplacedString = firstReplacedString.replaceAll(
                     "return",
-                    "outputCreator.addString(\""+className+"\", \"End_\" + \""+funcName+"\");\n " +
+                    "outputCreator.addJSON(\""+className+"\", \"End_\" + \""+funcName+"\");\n " +
                             "       return");
         } else {
             int pos = firstReplacedString.lastIndexOf('}');
              secondReplacedString = firstReplacedString.substring(0,pos) +
-                    "    outputCreator.addString(\""+className+"\", \"End_\" + \""+funcName+"\");\n"
+                    "    outputCreator.addJSON(\""+className+"\", \"End_\" + \""+funcName+"\");\n"
                     + firstReplacedString.substring(pos+1)
                     + "}";
         }
@@ -67,7 +67,7 @@ public class Parser {
         if (m.find()) {
             return m.group(0);
         } else {
-            throw new RuntimeException("Cannot find function name");
+            throw new RuntimeException("Cannot find function name.");
         }
     }
 
@@ -81,7 +81,7 @@ public class Parser {
             String[] splitStr = classnName.split("\\s+");
             return splitStr[splitStr.length - 1];
         } else {
-            throw new RuntimeException("Cannot find class name");
+            throw new RuntimeException("Cannot find class name.");
         }
     }
 

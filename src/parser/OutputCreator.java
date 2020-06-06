@@ -17,7 +17,7 @@ public class OutputCreator {
         return theOutputCreator;
     }
 
-    public static void addString(String className, String functionCalled) {
+    public static void addJSON(String className, String functionCalled) {
         JSONObject newObj = new JSONObject();
         newObj.put(className, functionCalled);
         jsonOutputAry.put(newObj);
