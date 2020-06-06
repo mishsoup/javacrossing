@@ -11,7 +11,7 @@ public class Parser {
     private final String regexForClass = "(?<=\\n|\\A)(?:public\\s)?(class|enum|abstract class)";
     // regex taken from Stackoverflow post
     // https://stackoverflow.com/questions/35912934/how-to-match-a-method-block-using-regex
-    private final String regexForFunc= "((?:(?:public|private|protected|static|final|abstract|synchronized|volatile)\\s+)*)\\s*(\\w+)\\s*(\\w+)\\(.*?\\)\\s*";
+    private final String regexForFunc= "((?:(?:public|private|protected|static|final|synchronized|volatile)\\s+)*)\\s*(\\w+)\\s*(\\w+)\\(.*?\\)\\s*";
 
     public String parseJavaFile(String javaString) {
         // if the java passed in is an interface then no modification required
@@ -42,7 +42,7 @@ public class Parser {
                 className = findClassName(currentLine);
                 outputString.append(importString + "\n");
                 outputString.append(currentLine + "\n");
-            } else if (funcM.find() && !stillInFunCall && !currentLine.contains(";")) {
+            } else if (funcM.find() && !stillInFunCall && currentLine.contains("{")) {
                 stillInFunCall = true;
                 funcName = findFunctionName(currentLine);
                 if (countOfBracket == 0 && currentLine.contains("{")) {
