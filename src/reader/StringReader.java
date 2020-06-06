@@ -11,11 +11,11 @@ import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class StringReader implements FileReader<String, FileContentString> {
+public class StringReader implements FileReader<String, StringFileContent> {
     // key: filePath;     value: fileContent in String form
-    Map<String, FileContentString> fileContents = new HashMap<>();
+    Map<String, StringFileContent> fileContents = new HashMap<>();
 
-    public Map<String, FileContentString> extract(String inputPath) {
+    public Map<String, StringFileContent> extract(String inputPath) {
         // produce contents map
         produceFileContentsMap(inputPath);
         return fileContents;
@@ -33,8 +33,8 @@ public class StringReader implements FileReader<String, FileContentString> {
             try {
                 Path path = Paths.get(filePath);
                 String content1 = Files.readString(path);
-                FileContentString fileContentString = new FileContentString(content1);
-                fileContents.put(filePath, fileContentString);
+                StringFileContent stringFileContent = new StringFileContent(content1);
+                fileContents.put(filePath, stringFileContent);
             } catch (IOException e) {
                 e.printStackTrace();
             }

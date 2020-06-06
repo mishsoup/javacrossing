@@ -1,8 +1,8 @@
 package reader;
 
-public class FileContentString {
+public class StringFileContent {
     public String content = "";
-    public FileContentString(String input) {
+    public StringFileContent(String input) {
         content = input;
     }
 }
