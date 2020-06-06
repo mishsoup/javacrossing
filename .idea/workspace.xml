@@ -2,8 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="72587607-207c-46e3-8054-08e10c2acaf5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/extractor/Extractor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/parser/Parser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/json_20200518.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/parser/OutputCreator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/random.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/input/random.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacrossing.iml" beforeDir="false" afterPath="$PROJECT_DIR$/javacrossing.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/javacrossing/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/javacrossing/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/javacrossing/parser/Parser.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/javacrossing/parser/Parser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/parser/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/parser/Parser.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,13 +39,23 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="true" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="android.sdk.path" value="$PROJECT_DIR$/../../../CPSC210/android-sdk" />
-    <property name="project.structure.last.edited" value="Problems" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.editor" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -69,5 +86,30 @@
       <screen x="0" y="23" width="1440" height="826" />
     </state>
     <state x="341" y="23" width="1024" height="826" key="#Project_Structure/0.23.1440.826@0.23.1440.826" timestamp="1591409733095" />
+    <state width="1098" height="145" key="GridCell.Tab.0.bottom" timestamp="1591411647786">
+      <screen x="0" y="23" width="1440" height="827" />
+    </state>
+    <state width="1098" height="145" key="GridCell.Tab.0.bottom/0.23.1440.827@0.23.1440.827" timestamp="1591411647786" />
+    <state width="1098" height="145" key="GridCell.Tab.0.center" timestamp="1591411647785">
+      <screen x="0" y="23" width="1440" height="827" />
+    </state>
+    <state width="1098" height="145" key="GridCell.Tab.0.center/0.23.1440.827@0.23.1440.827" timestamp="1591411647785" />
+    <state width="1098" height="145" key="GridCell.Tab.0.left" timestamp="1591411647784">
+      <screen x="0" y="23" width="1440" height="827" />
+    </state>
+    <state width="1098" height="145" key="GridCell.Tab.0.left/0.23.1440.827@0.23.1440.827" timestamp="1591411647784" />
+    <state width="1098" height="145" key="GridCell.Tab.0.right" timestamp="1591411647786">
+      <screen x="0" y="23" width="1440" height="827" />
+    </state>
+    <state width="1098" height="145" key="GridCell.Tab.0.right/0.23.1440.827@0.23.1440.827" timestamp="1591411647786" />
+    <state x="356" y="23" width="1024" height="826" key="SettingsEditor" timestamp="1591412806858">
+      <screen x="0" y="23" width="1440" height="827" />
+    </state>
+    <state x="356" y="23" width="1024" height="826" key="SettingsEditor/0.23.1440.826@0.23.1440.826" timestamp="1591412580089" />
+    <state x="356" y="23" key="SettingsEditor/0.23.1440.827@0.23.1440.827" timestamp="1591412806858" />
+    <state x="565" y="335" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1591412566918">
+      <screen x="0" y="23" width="1440" height="826" />
+    </state>
+    <state x="565" y="335" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.23.1440.826@0.23.1440.826" timestamp="1591412566918" />
   </component>
 </project>
