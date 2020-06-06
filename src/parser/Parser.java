@@ -10,8 +10,8 @@ public class Parser {
     // https://stackoverflow.com/questions/37403641/regex-to-fetch-the-correct-java-class-name
     private final String regexForClass = "(?<=\\n|\\A)(?:public\\s)?(class|enum|abstract class)";
     // regex taken from Stackoverflow post
-    // https://stackoverflow.com/questions/47663648/javascript-regex-getting-function-name-from-string
-    private final String regexForFunc= "([a-zA-Z_{1}][a-zA-Z0-9_]+)(?=\\()";
+    // https://stackoverflow.com/questions/35912934/how-to-match-a-method-block-using-regex
+    private final String regexForFunc= "((?:(?:public|private|protected|static|final|abstract|synchronized|volatile)\\s+)*)\\s*(\\w+)\\s*(\\w+)\\(.*?\\)\\s*";
 
     public String parseJavaFile(String javaString) {
         // if the java passed in is an interface then no modification required
@@ -42,9 +42,7 @@ public class Parser {
                 className = findClassName(currentLine);
                 outputString.append(importString + "\n");
                 outputString.append(currentLine + "\n");
-            } else if (funcM.find() && !stillInFunCall
-                    && !currentLine.contains("=") && !currentLine.contains("abstract")
-            && !currentLine.contains(";")) {
+            } else if (funcM.find() && !stillInFunCall && !currentLine.contains(";")) {
                 stillInFunCall = true;
                 funcName = findFunctionName(currentLine);
                 if (countOfBracket == 0 && currentLine.contains("{")) {
@@ -119,7 +117,9 @@ public class Parser {
     }
 
     private String findFunctionName(String functionString) {
-        Pattern pattern = Pattern.compile(regexForFunc);
+        // regex taken from Stackoverflow post
+        // https://stackoverflow.com/questions/47663648/javascript-regex-getting-function-name-from-string
+        Pattern pattern = Pattern.compile("([a-zA-Z_{1}][a-zA-Z0-9_]+)(?=\\()");
         Matcher m = pattern.matcher(functionString);
         if (m.find()) {
             return m.group(0);
