@@ -18,7 +18,7 @@ public class Parser {
         StringBuilder outputString = new StringBuilder(importString);
         String[] arrOfJavaWOFunc = javaString.split(functionRegex);
         // append all the non function declarations
-        for (int i = 0; i < arrOfJavaWOFunc.length - 2; i ++) {
+        for (int i = 0; i < arrOfJavaWOFunc.length - 1; i++) {
             outputString.append(arrOfJavaWOFunc[i]);
         }
         // process the function declarations
@@ -36,7 +36,7 @@ public class Parser {
     }
 
     private String injectToFunc(String functionString, String className, String funcName) {
-        // replacing the first { found
+        // injecting code to where the first { is found
         String firstReplacedString = functionString.replaceFirst("\\{", "{ \n" +
                 "        OutputCreator outputCreator = OutputCreator.getTheOutputCreator();\n" +
                 "        outputCreator.addString(\""+className+"\", \"Start_\" + \""+funcName+"\");");
@@ -74,7 +74,7 @@ public class Parser {
     private String findClassName(String javaString) {
         // regex taken from Stackoverflow post
         // https://stackoverflow.com/questions/37403641/regex-to-fetch-the-correct-java-class-name
-        Pattern pattern = Pattern.compile("(?<=\\n|\\A)(?:public\\s)?(class|interface|enum|abstract class)\\s([^\\n\\s]*)");
+        Pattern pattern = Pattern.compile("(?<=\\n|\\A)(?:public\\s)?(class|enum|abstract class)\\s([^\\n\\s]*)");
         Matcher m = pattern.matcher(javaString);
         if (m.find()) {
             String classnName = m.group(0);
@@ -90,11 +90,7 @@ public class Parser {
         // https://stackoverflow.com/questions/37403641/regex-to-fetch-the-correct-java-class-name
         Pattern pattern = Pattern.compile("(?<=\\n|\\A)(?:public\\s)?(interface)\\s([^\\n\\s]*)");
         Matcher m = pattern.matcher(javaString);
-        if (m.find())
-           return true;
-        else
-            return false;
-
+        return m.find();
     }
 
 }
