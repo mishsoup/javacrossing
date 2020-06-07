@@ -81,7 +81,11 @@ public class Parser {
             Matcher classM = pattern.matcher(currentLine);
             Pattern patternFunc = Pattern.compile(regexForFunc);
             Matcher funcM = patternFunc.matcher(currentLine);
-            if (classM.find()) {
+            Pattern patternComment = Pattern.compile("//.*|/\\*((.|\\n)(?!=*/))+\\*/");
+            Matcher funcComment = patternComment.matcher(currentLine);
+            if (funcComment.find()) {
+                outputString.append(currentLine + "\n");
+            } else if (classM.find()) {
                 className = findClassName(currentLine);
                 //TODO KEVIN comment out since for test
                 outputString.append(importString + "\n");
@@ -91,13 +95,13 @@ public class Parser {
                     && !currentLine.contains("while") && !currentLine.contains("for")) {
                 stillInFunCall = true;
                 funcName = findFunctionName(currentLine);
-
                     if (isMainFile(className)) {
                         // injecting code to where the first { is found
                         currentLine = currentLine.replaceFirst("\\{", "{ \n" +
                                 "        OutputCreator outputCreator = OutputCreator.getTheOutputCreator();\n" +
                                 "        outputCreator.addMainStartJSON(\""+className+"\", \"Start_\" + \""+funcName+"\");\n");
                     } else {
+
                         // injecting code to where the first { is found
                         currentLine = currentLine.replaceFirst("\\{", "{ \n" +
                                 "        OutputCreator outputCreator = OutputCreator.getTheOutputCreator();\n" +
@@ -121,6 +125,11 @@ public class Parser {
                 }
                 countOfBracket += (int) currentLine.chars().filter(ch -> ch == '{').count();
                 countOfBracket -= (int) currentLine.chars().filter(ch -> ch == '}').count();
+                if (currentLine.contains("\\{"))  {
+                    countOfBracket -= 1;
+                } else if (currentLine.contains("\\}")) {
+                    countOfBracket +=1;
+                }
                 if (!hasReturn && countOfBracket == 0 && currentLine.contains("}")) {
                     int pos = currentLine.lastIndexOf('}');
                     if (isMainFile(className)) {
@@ -161,6 +170,11 @@ public class Parser {
                 }
                 countOfBracket += (int) currentLine.chars().filter(ch -> ch == '{').count();
                 countOfBracket -= (int) currentLine.chars().filter(ch -> ch == '}').count();
+                if (currentLine.contains("\\{"))  {
+                    countOfBracket -= 1;
+                } else if (currentLine.contains("\\}")) {
+                    countOfBracket +=1;
+                }
                 if (!hasReturn && countOfBracket == 0 && currentLine.contains("}")) {
                     int pos = currentLine.lastIndexOf('}');
                     if (isMainFile(className)) {

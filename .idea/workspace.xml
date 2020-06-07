@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="72587607-207c-46e3-8054-08e10c2acaf5" name="Default Changelist" comment="1) update extractor which reads all .java in input package and output the Map&lt;String path, FileContent content&gt;; content is a large string wrapper">
-      <change beforePath="$PROJECT_DIR$/input/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/input/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/OutputCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/input/OutputCreator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/OutputCreator.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/input/moozeek/input.music" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/input.music" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/BASEKEY.java" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/BASEKEY.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/BASESOUND.java" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/BASESOUND.java" afterDir="false" />
@@ -30,8 +31,8 @@
       <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/REST.java" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/REST.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/RUN.java" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/RUN.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/SOUND.java" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/SOUND.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/exceptions/DuplicateNameException.java" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/src/main/java/exceptions/DuplicateNameException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/exceptions/WrongNameException.java" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/src/main/java/exceptions/WrongNameException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/exceptions/DuplicateNameException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/exceptions/WrongNameException.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/libs/MusicCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/src/main/java/libs/MusicCreator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/libs/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/src/main/java/libs/Node.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/libs/Tokenizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/src/main/java/libs/Tokenizer.java" afterDir="false" />
@@ -39,6 +40,8 @@
       <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/visitors/PlayerVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/src/main/java/visitors/PlayerVisitor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/input/moozeek/src/test/java/visitors/PlayerVisitorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/src/test/java/visitors/PlayerVisitorTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/input/moozeek/target/classes/libs/Tokenizer.class" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/target/classes/libs/Tokenizer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/javacrossing/parser/Parser.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/javacrossing/parser/Parser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/parser/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/parser/Parser.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,58 +146,66 @@
       <screen x="0" y="23" width="1440" height="826" />
     </state>
     <state x="341" y="23" width="1024" height="826" key="#Project_Structure/0.23.1440.826@0.23.1440.826" timestamp="1591409733095" />
-    <state width="1270" height="82" key="GridCell.Tab.0.bottom" timestamp="1591562349310">
-      <screen x="0" y="23" width="1440" height="826" />
+    <state width="1362" height="148" key="GridCell.Tab.0.bottom" timestamp="1591566595034">
+      <screen x="0" y="23" width="1440" height="829" />
     </state>
     <state width="1419" height="476" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1591413492373" />
     <state width="1270" height="82" key="GridCell.Tab.0.bottom/0.23.1440.826@0.23.1440.826" timestamp="1591562349310" />
     <state width="1151" height="300" key="GridCell.Tab.0.bottom/0.23.1440.827@0.23.1440.827" timestamp="1591516195287" />
     <state width="1318" height="300" key="GridCell.Tab.0.bottom/0.23.1440.828@0.23.1440.828" timestamp="1591516096995" />
-    <state width="1151" height="300" key="GridCell.Tab.0.bottom/0.23.1440.829@0.23.1440.829" timestamp="1591521376180" />
+    <state width="1362" height="148" key="GridCell.Tab.0.bottom/0.23.1440.829@0.23.1440.829" timestamp="1591566595034" />
+    <state width="1362" height="412" key="GridCell.Tab.0.bottom/0.23.1440.830@0.23.1440.830" timestamp="1591564324695" />
     <state width="1157" height="138" key="GridCell.Tab.0.bottom/0.23.1440.836@0.23.1440.836" timestamp="1591511642384" />
-    <state width="1270" height="82" key="GridCell.Tab.0.center" timestamp="1591562349309">
-      <screen x="0" y="23" width="1440" height="826" />
+    <state width="1362" height="148" key="GridCell.Tab.0.center" timestamp="1591566595031">
+      <screen x="0" y="23" width="1440" height="829" />
     </state>
     <state width="1419" height="476" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1591413492370" />
     <state width="1270" height="82" key="GridCell.Tab.0.center/0.23.1440.826@0.23.1440.826" timestamp="1591562349309" />
     <state width="1151" height="300" key="GridCell.Tab.0.center/0.23.1440.827@0.23.1440.827" timestamp="1591516195285" />
     <state width="1318" height="300" key="GridCell.Tab.0.center/0.23.1440.828@0.23.1440.828" timestamp="1591516096994" />
-    <state width="1151" height="300" key="GridCell.Tab.0.center/0.23.1440.829@0.23.1440.829" timestamp="1591521376179" />
+    <state width="1362" height="148" key="GridCell.Tab.0.center/0.23.1440.829@0.23.1440.829" timestamp="1591566595031" />
+    <state width="1362" height="412" key="GridCell.Tab.0.center/0.23.1440.830@0.23.1440.830" timestamp="1591564324694" />
     <state width="1157" height="138" key="GridCell.Tab.0.center/0.23.1440.836@0.23.1440.836" timestamp="1591511642383" />
-    <state width="1270" height="82" key="GridCell.Tab.0.left" timestamp="1591562349308">
-      <screen x="0" y="23" width="1440" height="826" />
+    <state width="1362" height="148" key="GridCell.Tab.0.left" timestamp="1591566595029">
+      <screen x="0" y="23" width="1440" height="829" />
     </state>
     <state width="1419" height="476" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1591413492370" />
     <state width="1270" height="82" key="GridCell.Tab.0.left/0.23.1440.826@0.23.1440.826" timestamp="1591562349308" />
     <state width="1151" height="300" key="GridCell.Tab.0.left/0.23.1440.827@0.23.1440.827" timestamp="1591516195282" />
     <state width="1318" height="300" key="GridCell.Tab.0.left/0.23.1440.828@0.23.1440.828" timestamp="1591516096994" />
-    <state width="1151" height="300" key="GridCell.Tab.0.left/0.23.1440.829@0.23.1440.829" timestamp="1591521376178" />
+    <state width="1362" height="148" key="GridCell.Tab.0.left/0.23.1440.829@0.23.1440.829" timestamp="1591566595029" />
+    <state width="1362" height="412" key="GridCell.Tab.0.left/0.23.1440.830@0.23.1440.830" timestamp="1591564324694" />
     <state width="1157" height="138" key="GridCell.Tab.0.left/0.23.1440.836@0.23.1440.836" timestamp="1591511642383" />
-    <state width="1270" height="82" key="GridCell.Tab.0.right" timestamp="1591562349310">
-      <screen x="0" y="23" width="1440" height="826" />
+    <state width="1362" height="148" key="GridCell.Tab.0.right" timestamp="1591566595032">
+      <screen x="0" y="23" width="1440" height="829" />
     </state>
     <state width="1419" height="476" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1591413492372" />
     <state width="1270" height="82" key="GridCell.Tab.0.right/0.23.1440.826@0.23.1440.826" timestamp="1591562349310" />
     <state width="1151" height="300" key="GridCell.Tab.0.right/0.23.1440.827@0.23.1440.827" timestamp="1591516195286" />
     <state width="1318" height="300" key="GridCell.Tab.0.right/0.23.1440.828@0.23.1440.828" timestamp="1591516096995" />
-    <state width="1151" height="300" key="GridCell.Tab.0.right/0.23.1440.829@0.23.1440.829" timestamp="1591521376180" />
+    <state width="1362" height="148" key="GridCell.Tab.0.right/0.23.1440.829@0.23.1440.829" timestamp="1591566595032" />
+    <state width="1362" height="412" key="GridCell.Tab.0.right/0.23.1440.830@0.23.1440.830" timestamp="1591564324695" />
     <state width="1157" height="138" key="GridCell.Tab.0.right/0.23.1440.836@0.23.1440.836" timestamp="1591511642384" />
-    <state width="1334" height="244" key="GridCell.Tab.1.bottom" timestamp="1591437719505">
-      <screen x="0" y="23" width="1440" height="826" />
+    <state width="1334" height="244" key="GridCell.Tab.1.bottom" timestamp="1591564386639">
+      <screen x="0" y="23" width="1440" height="829" />
     </state>
     <state width="1334" height="244" key="GridCell.Tab.1.bottom/0.23.1440.826@0.23.1440.826" timestamp="1591437719505" />
-    <state width="1334" height="244" key="GridCell.Tab.1.center" timestamp="1591437719503">
-      <screen x="0" y="23" width="1440" height="826" />
+    <state width="1334" height="244" key="GridCell.Tab.1.bottom/0.23.1440.829@0.23.1440.829" timestamp="1591564386639" />
+    <state width="1334" height="244" key="GridCell.Tab.1.center" timestamp="1591564386638">
+      <screen x="0" y="23" width="1440" height="829" />
     </state>
     <state width="1334" height="244" key="GridCell.Tab.1.center/0.23.1440.826@0.23.1440.826" timestamp="1591437719503" />
-    <state width="1334" height="244" key="GridCell.Tab.1.left" timestamp="1591437719503">
-      <screen x="0" y="23" width="1440" height="826" />
+    <state width="1334" height="244" key="GridCell.Tab.1.center/0.23.1440.829@0.23.1440.829" timestamp="1591564386638" />
+    <state width="1334" height="244" key="GridCell.Tab.1.left" timestamp="1591564386638">
+      <screen x="0" y="23" width="1440" height="829" />
     </state>
     <state width="1334" height="244" key="GridCell.Tab.1.left/0.23.1440.826@0.23.1440.826" timestamp="1591437719503" />
-    <state width="1334" height="244" key="GridCell.Tab.1.right" timestamp="1591437719504">
-      <screen x="0" y="23" width="1440" height="826" />
+    <state width="1334" height="244" key="GridCell.Tab.1.left/0.23.1440.829@0.23.1440.829" timestamp="1591564386638" />
+    <state width="1334" height="244" key="GridCell.Tab.1.right" timestamp="1591564386639">
+      <screen x="0" y="23" width="1440" height="829" />
     </state>
     <state width="1334" height="244" key="GridCell.Tab.1.right/0.23.1440.826@0.23.1440.826" timestamp="1591437719504" />
+    <state width="1334" height="244" key="GridCell.Tab.1.right/0.23.1440.829@0.23.1440.829" timestamp="1591564386639" />
     <state x="356" y="23" width="1024" height="826" key="SettingsEditor" timestamp="1591412806858">
       <screen x="0" y="23" width="1440" height="827" />
     </state>
