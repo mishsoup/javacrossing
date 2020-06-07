@@ -25,7 +25,7 @@ public class Main {
         });
 
         // write file
-//        stringFileWriter.writeFiles(newFileContents);
+        stringFileWriter.writeFiles(newFileContents);
 
         // debug Point
         System.out.println("END");
