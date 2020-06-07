@@ -10,6 +10,7 @@ import java.util.Map;
 
 public class StringFileWriter implements FileWriter<String, StringFileContent> {
 
+
     public void writeFiles(Map<String, StringFileContent> fileContents) {
         // update all files in input project
         fileContents.forEach((k, v) -> writeFile(k, v.content));
@@ -40,7 +41,7 @@ public class StringFileWriter implements FileWriter<String, StringFileContent> {
         // find the Main path
         StringBuffer mainPath = new StringBuffer();
         fileContentMap.forEach((k, v) -> {
-            if (k.contains("Main")) {
+            if (isMainPath(k)) {
                 mainPath.append(k);
             }
         });
@@ -63,5 +64,10 @@ public class StringFileWriter implements FileWriter<String, StringFileContent> {
         }
         // write it to project
         writeFile(outPutCreatorPath.toString(), sfc.content);
+    }
+
+    private boolean isMainPath(String mainPath) {
+        int lastSlashIndex = mainPath.lastIndexOf("/");
+        return mainPath.substring(lastSlashIndex).contains("Main");
     }
 }
