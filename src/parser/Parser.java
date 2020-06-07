@@ -44,7 +44,9 @@ public class Parser {
                 className = findClassName(currentLine);
                 outputString.append(importString + "\n");
                 outputString.append(currentLine + "\n");
-            } else if (funcM.find() && !stillInFunCall && currentLine.contains("{")) {
+            } else if (funcM.find() && !stillInFunCall &&
+                    currentLine.contains("{") && !currentLine.contains("if")
+                    && !currentLine.contains("while") && !currentLine.contains("for")) {
                 stillInFunCall = true;
                 funcName = findFunctionName(currentLine);
                     // injecting code to where the first { is found
