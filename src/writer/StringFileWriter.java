@@ -52,7 +52,10 @@ public class StringFileWriter implements FileWriter<String, StringFileContent> {
         try {
             Path path = Paths.get(originalOutputCreatorPath);
             String content1 = Files.readString(path);
-            sfc = new StringFileContent(content1);
+            String dirName = mainDirPath.substring(mainDirPath.lastIndexOf("/") + 1);
+            StringBuffer contentAddPackage = new StringBuffer();
+            contentAddPackage.append("package " + dirName + ";\n" + content1);
+            sfc = new StringFileContent(contentAddPackage.toString());
         } catch (IOException e) {
             e.printStackTrace();
         }

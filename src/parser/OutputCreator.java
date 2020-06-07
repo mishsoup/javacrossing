@@ -1,4 +1,3 @@
-package ui;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -55,5 +54,4 @@ public class OutputCreator {
             }
         }
     }
-
 }

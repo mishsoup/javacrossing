@@ -12,7 +12,8 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class StringReader implements FileReader<String, StringFileContent> {
-    // key: filePath;     value: fileContent in String form
+    // key: filePath;     value: fileContent in String form (wrap in StringFileContent class since some java.file to be
+    // string is too large so we can not put it directly to Map value)
     Map<String, StringFileContent> fileContents = new HashMap<>();
 
     public Map<String, StringFileContent> extract(String inputPath) {
