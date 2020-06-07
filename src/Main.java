@@ -1,7 +1,7 @@
+import parser.Parser;
 import reader.FileReader;
 import reader.StringFileContent;
 import reader.StringReader;
-import parser.Parser;
 import writer.StringFileWriter;
 
 import java.util.HashMap;
