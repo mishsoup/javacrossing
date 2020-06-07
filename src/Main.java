@@ -1,7 +1,7 @@
+import parser.Parser;
 import reader.FileReader;
 import reader.StringFileContent;
 import reader.StringReader;
-import parser.Parser;
 import writer.StringFileWriter;
 
 import java.util.HashMap;
@@ -25,7 +25,7 @@ public class Main {
         });
 
         // write file
-//        stringFileWriter.writeFiles(newFileContents);
+        stringFileWriter.writeFiles(newFileContents);
 
         // debug Point
         System.out.println("END");

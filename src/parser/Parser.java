@@ -5,7 +5,7 @@ import java.util.regex.Pattern;
 
 public class Parser {
 
-    private final String importString = "import parser.OutputCreator; \n";
+    private final String importString = "import ui.OutputCreator; \n";
     // regex taken from Stackoverflow post
     // https://stackoverflow.com/questions/37403641/regex-to-fetch-the-correct-java-class-name
     private final String regexForClass = "(?<=\\n|\\A)(?:public\\s)?(class|abstract class|enum)\\s([^\\n\\s]*)";
@@ -42,6 +42,7 @@ public class Parser {
             Matcher funcM = patternFunc.matcher(currentLine);
             if (classM.find()) {
                 className = findClassName(currentLine);
+                //TODO KEVIN comment out since for test
                 outputString.append(importString + "\n");
                 outputString.append(currentLine + "\n");
             } else if (funcM.find() && !stillInFunCall &&
@@ -49,26 +50,50 @@ public class Parser {
                     && !currentLine.contains("while") && !currentLine.contains("for")) {
                 stillInFunCall = true;
                 funcName = findFunctionName(currentLine);
-                    // injecting code to where the first { is found
-                currentLine = currentLine.replaceFirst("\\{", "{ \n" +
-                            "        OutputCreator outputCreator = OutputCreator.getTheOutputCreator();\n" +
-                            "        outputCreator.addJSON(\""+className+"\", \"Start_\" + \""+funcName+"\");\n");
+
+                    if (isMainFile(className)) {
+                        // injecting code to where the first { is found
+                        currentLine = currentLine.replaceFirst("\\{", "{ \n" +
+                                "        OutputCreator outputCreator = OutputCreator.getTheOutputCreator();\n" +
+                                "        outputCreator.addMainStartJSON(\""+className+"\", \"Start_\" + \""+funcName+"\");\n");
+                    } else {
+                        // injecting code to where the first { is found
+                        currentLine = currentLine.replaceFirst("\\{", "{ \n" +
+                                "        OutputCreator outputCreator = OutputCreator.getTheOutputCreator();\n" +
+                                "        outputCreator.addFuncStartJSON(\""+className+"\", \"Start_\" + \""+funcName+"\");\n");
+                    }
 
                 if (currentLine.contains("return")) {
-                    currentLine = currentLine.replaceAll(
-                            "return",
-                            "outputCreator.addJSON(\""+className+"\", \"End_\" + \""+funcName+"\");\n " +
-                                    "       return");
+                    if (isMainFile(className)) {
+                        currentLine = currentLine.replaceAll(
+                                "return",
+                                "outputCreator.addMainEndJSON(\""+className+"\", \"End_\" + \""+funcName+"\");\n " +
+                                        "outputCreator.writeJSONFile(\"result.txt\");\n" +
+                                        "       return");
+                    } else {
+                        currentLine = currentLine.replaceAll(
+                                "return",
+                                "outputCreator.addFuncEndJSON(\""+className+"\", \"End_\" + \""+funcName+"\");\n " +
+                                        "       return");
+                    }
                     hasReturn = true;
                 }
                 countOfBracket += (int) currentLine.chars().filter(ch -> ch == '{').count();
                 countOfBracket -= (int) currentLine.chars().filter(ch -> ch == '}').count();
                 if (!hasReturn && countOfBracket == 0 && currentLine.contains("}")) {
                     int pos = currentLine.lastIndexOf('}');
-                    currentLine = currentLine.substring(0,pos) +
-                            "    outputCreator.addJSON(\""+className+"\", \"End_\" + \""+funcName+"\");\n"
-                            + currentLine.substring(pos+1)
-                            + "    } \n";
+                    if (isMainFile(className)) {
+                        currentLine = currentLine.substring(0,pos) +
+                                "    outputCreator.addMainEndJSON(\""+className+"\", \"End_\" + \""+funcName+"\");\n" +
+                                "outputCreator.writeJSONFile(\"result.txt\");\n"
+                                + currentLine.substring(pos+1)
+                                + "    } \n";
+                    } else {
+                        currentLine = currentLine.substring(0,pos) +
+                                "    outputCreator.addFuncEndJSON(\""+className+"\", \"End_\" + \""+funcName+"\");\n"
+                                + currentLine.substring(pos+1)
+                                + "    } \n";
+                    }
                 }
                 // end of function parsing
                 if (countOfBracket == 0 ){
@@ -79,20 +104,36 @@ public class Parser {
                 outputString.append(currentLine + "\n");
             } else if (stillInFunCall){
                 if (currentLine.contains("return")) {
-                    currentLine = currentLine.replaceAll(
-                            "return",
-                            "outputCreator.addJSON(\""+className+"\", \"End_\" + \""+funcName+"\");\n " +
-                                    "       return");
+                    if (isMainFile(className)) {
+                        currentLine = currentLine.replaceAll(
+                                "return",
+                                "outputCreator.addMainEndJSON(\""+className+"\", \"End_\" + \""+funcName+"\");\n " +
+                                        "outputCreator.writeJSONFile(\"result.txt\");\n" +
+                                "       return");
+                    }else {
+                        currentLine = currentLine.replaceAll(
+                                "return",
+                                "outputCreator.addFuncEndJSON(\""+className+"\", \"End_\" + \""+funcName+"\");\n " +
+                                        "       return");
+                    }
                     hasReturn = true;
                 }
                 countOfBracket += (int) currentLine.chars().filter(ch -> ch == '{').count();
                 countOfBracket -= (int) currentLine.chars().filter(ch -> ch == '}').count();
                 if (!hasReturn && countOfBracket == 0 && currentLine.contains("}")) {
                     int pos = currentLine.lastIndexOf('}');
-                    currentLine = currentLine.substring(0,pos) +
-                            "    outputCreator.addJSON(\""+className+"\", \"End_\" + \""+funcName+"\");\n"
-                            + currentLine.substring(pos+1)
-                            + "    } \n";
+                    if (isMainFile(className)) {
+                        currentLine = currentLine.substring(0,pos) +
+                                "    outputCreator.addMainEndJSON(\""+className+"\", \"End_\" + \""+funcName+"\");\n" +
+                                "outputCreator.writeJSONFile(\"result.txt\");\n"
+                                + currentLine.substring(pos+1)
+                                + "    } \n";
+                    } else {
+                        currentLine = currentLine.substring(0,pos) +
+                                "    outputCreator.addFuncEndJSON(\""+className+"\", \"End_\" + \""+funcName+"\");\n"
+                                + currentLine.substring(pos+1)
+                                + "    } \n";
+                    }
                 }
                 // end of function parsing
                 if (countOfBracket == 0 ){
@@ -112,9 +153,9 @@ public class Parser {
         Pattern pattern = Pattern.compile(regexForClass);
         Matcher m = pattern.matcher(javaString);
         if (m.find()) {
-            String classnName = m.group(0);
-            String[] splitStr = classnName.split("\\s+");
-            return splitStr[splitStr.length - 1];
+            //String classnName = m.group(0);
+            String[] splitStr = javaString.split("\\s+");
+            return splitStr[splitStr.length - 2];
         } else {
             throw new RuntimeException("Cannot find class name.");
         }
@@ -138,5 +179,10 @@ public class Parser {
         Pattern pattern = Pattern.compile("(?<=\\n|\\A)(?:public\\s)?(interface)\\s([^\\n\\s]*)");
         Matcher m = pattern.matcher(javaString);
         return m.find();
+    }
+
+    // input className; check whether the class is Main, we will append diff code to Main like write file
+    private Boolean isMainFile(String fileName) {
+        return fileName.equals("Main");
     }
 }
