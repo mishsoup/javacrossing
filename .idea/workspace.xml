@@ -4,72 +4,11 @@
     <list default="true" id="72587607-207c-46e3-8054-08e10c2acaf5" name="Default Changelist" comment="1) update extractor which reads all .java in input package and output the Map&lt;String path, FileContent content&gt;; content is a large string wrapper">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/input/moozeek/input.music" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/input.music" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/BASEKEY.java" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/BASEKEY.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/BASESOUND.java" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/BASESOUND.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/BEAT.java" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/BEAT.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/BPM.java" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/BPM.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/CHORD.java" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/CHORD.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/CHORDPROGRESSION.java" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/CHORDPROGRESSION.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/COMMENT.java" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/COMMENT.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/CONNECT.java" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/CONNECT.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/COUNTS.java" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/COUNTS.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/COUNTVALUE.java" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/COUNTVALUE.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/CREATE.java" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/CREATE.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/FUNC.java" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/FUNC.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/FUNCBODY.java" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/FUNCBODY.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/INSTRUCTION.java" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/INSTRUCTION.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/INSTRUMENT.java" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/INSTRUMENT.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/LAYER.java" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/LAYER.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/LENGTH.java" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/LENGTH.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/MELODY.java" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/MELODY.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/NAME.java" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/NAME.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/NOTE.java" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/NOTE.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/PLAY.java" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/PLAY.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/PROGRAM.java" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/PROGRAM.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/REST.java" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/REST.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/RUN.java" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/RUN.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/SOUND.java" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/SOUND.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/exceptions/DuplicateNameException.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/exceptions/WrongNameException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/libs/MusicCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/src/main/java/libs/MusicCreator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/libs/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/src/main/java/libs/Node.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/libs/Tokenizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/src/main/java/libs/Tokenizer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/ui/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/src/main/java/ui/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/visitors/PlayerVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/src/main/java/visitors/PlayerVisitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/src/test/java/visitors/PlayerVisitorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/src/test/java/visitors/PlayerVisitorTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/target/classes/ast/BASEKEY.class" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/target/classes/ast/BASEKEY.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/target/classes/ast/BASESOUND.class" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/target/classes/ast/BASESOUND.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/target/classes/ast/BEAT.class" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/target/classes/ast/BEAT.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/target/classes/ast/BPM.class" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/target/classes/ast/BPM.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/target/classes/ast/CHORD.class" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/target/classes/ast/CHORD.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/target/classes/ast/CHORDPROGRESSION.class" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/target/classes/ast/CHORDPROGRESSION.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/target/classes/ast/COMMENT.class" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/target/classes/ast/COMMENT.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/target/classes/ast/CONNECT.class" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/target/classes/ast/CONNECT.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/target/classes/ast/COUNTS.class" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/target/classes/ast/COUNTS.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/target/classes/ast/COUNTVALUE.class" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/target/classes/ast/COUNTVALUE.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/target/classes/ast/CREATE.class" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/target/classes/ast/CREATE.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/target/classes/ast/FUNC.class" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/target/classes/ast/FUNC.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/target/classes/ast/FUNCBODY.class" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/target/classes/ast/FUNCBODY.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/target/classes/ast/INSTRUCTION.class" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/target/classes/ast/INSTRUCTION.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/target/classes/ast/INSTRUMENT.class" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/target/classes/ast/INSTRUMENT.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/target/classes/ast/LAYER.class" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/target/classes/ast/LAYER.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/target/classes/ast/LENGTH.class" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/target/classes/ast/LENGTH.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/target/classes/ast/MELODY.class" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/target/classes/ast/MELODY.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/target/classes/ast/NAME.class" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/target/classes/ast/NAME.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/target/classes/ast/NOTE.class" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/target/classes/ast/NOTE.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/target/classes/ast/PLAY.class" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/target/classes/ast/PLAY.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/target/classes/ast/PROGRAM.class" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/target/classes/ast/PROGRAM.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/target/classes/ast/REST.class" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/target/classes/ast/REST.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/target/classes/ast/RUN.class" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/target/classes/ast/RUN.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/target/classes/ast/SOUND.class" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/target/classes/ast/SOUND.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/target/classes/libs/MusicCreator.class" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/target/classes/libs/MusicCreator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/target/classes/libs/Node.class" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/target/classes/libs/Node.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/input/moozeek/target/classes/libs/Tokenizer.class" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/target/classes/libs/Tokenizer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/target/classes/ui/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/target/classes/ui/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/target/classes/visitors/PlayerVisitor.class" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/target/classes/visitors/PlayerVisitor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/target/test-classes/visitors/PlayerVisitorTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/target/test-classes/visitors/PlayerVisitorTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/javacrossing/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/javacrossing/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacrossing/parser/Parser.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/parser/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/parser/Parser.java" afterDir="false" />
     </list>
@@ -152,6 +91,14 @@
       <option name="presentableId" value="Default" />
       <updated>1591409722775</updated>
     </task>
+    <task id="LOCAL-00001" summary="reafcatored parser and added citation for where the regex was found">
+      <created>1591569950642</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1591569950642</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -169,54 +116,57 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="1) update extractor which reads all .java in input package and output the Map&lt;String path, FileContent content&gt;; content is a large string wrapper" />
-    <option name="LAST_COMMIT_MESSAGE" value="1) update extractor which reads all .java in input package and output the Map&lt;String path, FileContent content&gt;; content is a large string wrapper" />
+    <MESSAGE value="reafcatored parser and added citation for where the regex was found" />
+    <option name="LAST_COMMIT_MESSAGE" value="reafcatored parser and added citation for where the regex was found" />
   </component>
   <component name="WindowStateProjectService">
     <state x="341" y="23" width="1024" height="826" key="#Project_Structure" timestamp="1591409733095">
       <screen x="0" y="23" width="1440" height="826" />
     </state>
     <state x="341" y="23" width="1024" height="826" key="#Project_Structure/0.23.1440.826@0.23.1440.826" timestamp="1591409733095" />
-    <state x="0" y="23" width="1440" height="829" key="CommitChangelistDialog2" timestamp="1591566862600">
-      <screen x="0" y="23" width="1440" height="829" />
+    <state x="0" y="23" width="1440" height="826" key="CommitChangelistDialog2" timestamp="1591570393593">
+      <screen x="0" y="23" width="1440" height="828" />
     </state>
+    <state x="0" y="23" width="1440" height="826" key="CommitChangelistDialog2/0.23.1440.826@0.23.1440.826" timestamp="1591569950296" />
+    <state x="0" y="23" key="CommitChangelistDialog2/0.23.1440.828@0.23.1440.828" timestamp="1591570393593" />
     <state x="0" y="23" width="1440" height="829" key="CommitChangelistDialog2/0.23.1440.829@0.23.1440.829" timestamp="1591566862600" />
-    <state width="1298" height="194" key="GridCell.Tab.0.bottom" timestamp="1591569766903">
+    <state width="1298" height="351" key="GridCell.Tab.0.bottom" timestamp="1591570438618">
       <screen x="0" y="23" width="1440" height="827" />
     </state>
     <state width="1419" height="476" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1591413492373" />
     <state width="1270" height="82" key="GridCell.Tab.0.bottom/0.23.1440.826@0.23.1440.826" timestamp="1591562349310" />
-    <state width="1298" height="194" key="GridCell.Tab.0.bottom/0.23.1440.827@0.23.1440.827" timestamp="1591569766903" />
-    <state width="1318" height="300" key="GridCell.Tab.0.bottom/0.23.1440.828@0.23.1440.828" timestamp="1591516096995" />
+    <state width="1298" height="351" key="GridCell.Tab.0.bottom/0.23.1440.827@0.23.1440.827" timestamp="1591570438618" />
+    <state width="1298" height="351" key="GridCell.Tab.0.bottom/0.23.1440.828@0.23.1440.828" timestamp="1591570409191" />
     <state width="1362" height="148" key="GridCell.Tab.0.bottom/0.23.1440.829@0.23.1440.829" timestamp="1591566595034" />
     <state width="1362" height="412" key="GridCell.Tab.0.bottom/0.23.1440.830@0.23.1440.830" timestamp="1591564324695" />
     <state width="1157" height="138" key="GridCell.Tab.0.bottom/0.23.1440.836@0.23.1440.836" timestamp="1591511642384" />
-    <state width="1298" height="194" key="GridCell.Tab.0.center" timestamp="1591569766901">
+    <state width="1298" height="351" key="GridCell.Tab.0.center" timestamp="1591570438615">
       <screen x="0" y="23" width="1440" height="827" />
     </state>
     <state width="1419" height="476" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1591413492370" />
     <state width="1270" height="82" key="GridCell.Tab.0.center/0.23.1440.826@0.23.1440.826" timestamp="1591562349309" />
-    <state width="1298" height="194" key="GridCell.Tab.0.center/0.23.1440.827@0.23.1440.827" timestamp="1591569766901" />
-    <state width="1318" height="300" key="GridCell.Tab.0.center/0.23.1440.828@0.23.1440.828" timestamp="1591516096994" />
+    <state width="1298" height="351" key="GridCell.Tab.0.center/0.23.1440.827@0.23.1440.827" timestamp="1591570438615" />
+    <state width="1298" height="351" key="GridCell.Tab.0.center/0.23.1440.828@0.23.1440.828" timestamp="1591570409189" />
     <state width="1362" height="148" key="GridCell.Tab.0.center/0.23.1440.829@0.23.1440.829" timestamp="1591566595031" />
     <state width="1362" height="412" key="GridCell.Tab.0.center/0.23.1440.830@0.23.1440.830" timestamp="1591564324694" />
     <state width="1157" height="138" key="GridCell.Tab.0.center/0.23.1440.836@0.23.1440.836" timestamp="1591511642383" />
-    <state width="1298" height="194" key="GridCell.Tab.0.left" timestamp="1591569766901">
+    <state width="1298" height="351" key="GridCell.Tab.0.left" timestamp="1591570438612">
       <screen x="0" y="23" width="1440" height="827" />
     </state>
     <state width="1419" height="476" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1591413492370" />
     <state width="1270" height="82" key="GridCell.Tab.0.left/0.23.1440.826@0.23.1440.826" timestamp="1591562349308" />
-    <state width="1298" height="194" key="GridCell.Tab.0.left/0.23.1440.827@0.23.1440.827" timestamp="1591569766901" />
-    <state width="1318" height="300" key="GridCell.Tab.0.left/0.23.1440.828@0.23.1440.828" timestamp="1591516096994" />
+    <state width="1298" height="351" key="GridCell.Tab.0.left/0.23.1440.827@0.23.1440.827" timestamp="1591570438612" />
+    <state width="1298" height="351" key="GridCell.Tab.0.left/0.23.1440.828@0.23.1440.828" timestamp="1591570409188" />
     <state width="1362" height="148" key="GridCell.Tab.0.left/0.23.1440.829@0.23.1440.829" timestamp="1591566595029" />
     <state width="1362" height="412" key="GridCell.Tab.0.left/0.23.1440.830@0.23.1440.830" timestamp="1591564324694" />
     <state width="1157" height="138" key="GridCell.Tab.0.left/0.23.1440.836@0.23.1440.836" timestamp="1591511642383" />
-    <state width="1298" height="194" key="GridCell.Tab.0.right" timestamp="1591569766902">
+    <state width="1298" height="351" key="GridCell.Tab.0.right" timestamp="1591570438617">
       <screen x="0" y="23" width="1440" height="827" />
     </state>
     <state width="1419" height="476" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1591413492372" />
     <state width="1270" height="82" key="GridCell.Tab.0.right/0.23.1440.826@0.23.1440.826" timestamp="1591562349310" />
-    <state width="1298" height="194" key="GridCell.Tab.0.right/0.23.1440.827@0.23.1440.827" timestamp="1591569766902" />
-    <state width="1318" height="300" key="GridCell.Tab.0.right/0.23.1440.828@0.23.1440.828" timestamp="1591516096995" />
+    <state width="1298" height="351" key="GridCell.Tab.0.right/0.23.1440.827@0.23.1440.827" timestamp="1591570438617" />
+    <state width="1298" height="351" key="GridCell.Tab.0.right/0.23.1440.828@0.23.1440.828" timestamp="1591570409190" />
     <state width="1362" height="148" key="GridCell.Tab.0.right/0.23.1440.829@0.23.1440.829" timestamp="1591566595032" />
     <state width="1362" height="412" key="GridCell.Tab.0.right/0.23.1440.830@0.23.1440.830" timestamp="1591564324695" />
     <state width="1157" height="138" key="GridCell.Tab.0.right/0.23.1440.836@0.23.1440.836" timestamp="1591511642384" />
@@ -245,6 +195,10 @@
     </state>
     <state x="356" y="23" width="1024" height="826" key="SettingsEditor/0.23.1440.826@0.23.1440.826" timestamp="1591412580089" />
     <state x="356" y="23" key="SettingsEditor/0.23.1440.827@0.23.1440.827" timestamp="1591412806858" />
+    <state x="297" y="167" key="Vcs.Push.Dialog.v2" timestamp="1591569952932">
+      <screen x="0" y="23" width="1440" height="826" />
+    </state>
+    <state x="297" y="167" key="Vcs.Push.Dialog.v2/0.23.1440.826@0.23.1440.826" timestamp="1591569952932" />
     <state x="565" y="335" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1591412566918">
       <screen x="0" y="23" width="1440" height="826" />
     </state>

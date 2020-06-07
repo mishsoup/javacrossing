@@ -121,13 +121,7 @@ public class Parser {
             }
             hasReturn = true;
         }
-        countOfBracket += (int) currentLine.chars().filter(ch -> ch == '{').count();
-        countOfBracket -= (int) currentLine.chars().filter(ch -> ch == '}').count();
-        if (currentLine.contains("\\{"))  {
-            countOfBracket -= 1;
-        } else if (currentLine.contains("\\}")) {
-            countOfBracket +=1;
-        }
+        processBrackets(currentLine);
         if (!hasReturn && countOfBracket == 0 && currentLine.contains("}")) {
             int pos = currentLine.lastIndexOf('}');
             if (isMainFile(className)) {
@@ -145,9 +139,7 @@ public class Parser {
         }
         // end of function parsing
         if (countOfBracket == 0 ){
-            stillInFunCall = false;
-            hasReturn = false;
-            funcName = "Function name not found";
+            resetFuncVars();
         }
         return currentLine;
     }
@@ -183,13 +175,7 @@ public class Parser {
             }
             hasReturn = true;
         }
-        countOfBracket += (int) currentLine.chars().filter(ch -> ch == '{').count();
-        countOfBracket -= (int) currentLine.chars().filter(ch -> ch == '}').count();
-        if (currentLine.contains("\\{"))  {
-            countOfBracket -= 1;
-        } else if (currentLine.contains("\\}")) {
-            countOfBracket +=1;
-        }
+        processBrackets(currentLine);
         if (!hasReturn && countOfBracket == 0 && currentLine.contains("}")) {
             int pos = currentLine.lastIndexOf('}');
             if (isMainFile(className)) {
@@ -207,11 +193,25 @@ public class Parser {
         }
         // end of function parsing
         if (countOfBracket == 0 ){
-            stillInFunCall = false;
-            hasReturn = false;
-            funcName = "Function name not found";
+            resetFuncVars();
         }
         return currentLine;
+    }
+
+    private void resetFuncVars() {
+        stillInFunCall = false;
+        hasReturn = false;
+        funcName = "Function name not found";
+    }
+
+    private void processBrackets(String currentLine) {
+        countOfBracket += (int) currentLine.chars().filter(ch -> ch == '{').count();
+        countOfBracket -= (int) currentLine.chars().filter(ch -> ch == '}').count();
+        if (currentLine.contains("\\{"))  {
+            countOfBracket -= 1;
+        } else if (currentLine.contains("\\}")) {
+            countOfBracket +=1;
+        }
     }
 
     private String findClassName(String javaString) {
