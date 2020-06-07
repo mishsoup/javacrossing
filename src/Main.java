@@ -4,7 +4,6 @@ import reader.StringFileContent;
 import reader.StringReader;
 import writer.StringFileWriter;
 
-import java.util.HashMap;
 import java.util.Map;
 
 public class Main {
@@ -15,16 +14,13 @@ public class Main {
 
         // read file
         Map<String, StringFileContent> fileContents = fileReader.extract("input");
-        Map<String, StringFileContent> newFileContents = new HashMap<>();
 
         // parse file
-        fileContents.forEach((k, v) -> {
-            String newV = parser.parseJavaFile(v.content);
-            StringFileContent newStringFileContent = new StringFileContent(newV);
-            newFileContents.put(k, newStringFileContent);
-        });
+        Map<String, StringFileContent> newFileContents = parser.parse(fileContents);
+
 
         // write file
+        stringFileWriter.setMainDirPath(parser.getMainDirPath());
         stringFileWriter.writeFiles(newFileContents);
 
         // debug Point
