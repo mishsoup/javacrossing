@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+//TODO REMOVE THIS CLASS WHEN NEW PARSER IS FINISHED
 public class OldParser {
     private final String importString = "import parser.OutputCreator; \n";
     // this regex is taken from Stackoverflow post

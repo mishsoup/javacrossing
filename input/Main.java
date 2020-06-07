@@ -1,10 +1,20 @@
-public class random {
+
+
+public class Main {
     String name = "abc";
     public String getName() {
-        return name;
+       return name;
     }
 
     public void asdfasdf() {
+     } 
 
-    }
+
+
+
+
+
+
+
+
 }

@@ -8,7 +8,7 @@ public class Parser {
     private final String importString = "import ui.OutputCreator; \n";
     // regex taken from Stackoverflow post
     // https://stackoverflow.com/questions/37403641/regex-to-fetch-the-correct-java-class-name
-    private final String regexForClass = "(?<=\\n|\\A)(?:public\\s)?(class|enum|abstract class)";
+    private final String regexForClass = "(?<=\\n|\\A)(?:public\\s)?(class|abstract class|enum)\\s([^\\n\\s]*)";
     // regex taken from Stackoverflow post
     // https://stackoverflow.com/questions/35912934/how-to-match-a-method-block-using-regex
     private final String regexForFunc= "((?:(?:public|private|protected|static|final|synchronized|volatile)\\s+)*)\\s*(\\w+)\\s*(\\w+)\\(.*?\\)\\s*";
@@ -18,6 +18,7 @@ public class Parser {
         if (checkIfInterface(javaString)) {
             return javaString;
         }
+        javaString = javaString.replaceAll("import parser.OutputCreator; \n", "");
         // split into string to parse each line
         String javaStringAry[] = javaString.split("\\r?\\n");
         String outputString = processEachLine(javaStringAry);
@@ -44,10 +45,12 @@ public class Parser {
                 //TODO KEVIN comment out since for test
                 outputString.append(importString + "\n");
                 outputString.append(currentLine + "\n");
-            } else if (funcM.find() && !stillInFunCall && currentLine.contains("{")) {
+            } else if (funcM.find() && !stillInFunCall &&
+                    currentLine.contains("{") && !currentLine.contains("if")
+                    && !currentLine.contains("while") && !currentLine.contains("for")) {
                 stillInFunCall = true;
                 funcName = findFunctionName(currentLine);
-                if (countOfBracket == 0 && currentLine.contains("{")) {
+
                     if (isMainFile(className)) {
                         // injecting code to where the first { is found
                         currentLine = currentLine.replaceFirst("\\{", "{ \n" +
@@ -59,7 +62,7 @@ public class Parser {
                                 "        OutputCreator outputCreator = OutputCreator.getTheOutputCreator();\n" +
                                 "        outputCreator.addFuncStartJSON(\""+className+"\", \"Start_\" + \""+funcName+"\");\n");
                     }
-                }
+
                 if (currentLine.contains("return")) {
                     if (isMainFile(className)) {
                         currentLine = currentLine.replaceAll(
@@ -77,7 +80,7 @@ public class Parser {
                 }
                 countOfBracket += (int) currentLine.chars().filter(ch -> ch == '{').count();
                 countOfBracket -= (int) currentLine.chars().filter(ch -> ch == '}').count();
-                if (!hasReturn && countOfBracket == 0) {
+                if (!hasReturn && countOfBracket == 0 && currentLine.contains("}")) {
                     int pos = currentLine.lastIndexOf('}');
                     if (isMainFile(className)) {
                         currentLine = currentLine.substring(0,pos) +
@@ -96,6 +99,7 @@ public class Parser {
                 if (countOfBracket == 0 ){
                     stillInFunCall = false;
                     hasReturn = false;
+                    funcName = "Function name not found";
                 }
                 outputString.append(currentLine + "\n");
             } else if (stillInFunCall){
@@ -116,7 +120,7 @@ public class Parser {
                 }
                 countOfBracket += (int) currentLine.chars().filter(ch -> ch == '{').count();
                 countOfBracket -= (int) currentLine.chars().filter(ch -> ch == '}').count();
-                if (!hasReturn && countOfBracket == 0) {
+                if (!hasReturn && countOfBracket == 0 && currentLine.contains("}")) {
                     int pos = currentLine.lastIndexOf('}');
                     if (isMainFile(className)) {
                         currentLine = currentLine.substring(0,pos) +
@@ -135,6 +139,7 @@ public class Parser {
                 if (countOfBracket == 0 ){
                     stillInFunCall = false;
                     hasReturn = false;
+                    funcName = "Function name not found";
                 }
                 outputString.append(currentLine + "\n");
             } else {
