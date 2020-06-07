@@ -9,12 +9,17 @@ import java.nio.file.Paths;
 import java.util.Map;
 
 public class StringFileWriter implements FileWriter<String, StringFileContent> {
+    private String mainDirPath;
+
+    public void setMainDirPath(String dirPath) {
+        mainDirPath = dirPath;
+    }
 
     public void writeFiles(Map<String, StringFileContent> fileContents) {
         // update all files in input project
         fileContents.forEach((k, v) -> writeFile(k, v.content));
         // inject our OutputCreator to the dic of main in the input project
-        writeOutPutCreatorToMainDic(fileContents);
+        writeOutPutCreatorToMainDir();
     }
 
     private void writeFile(String path, String content) {
@@ -33,31 +38,24 @@ public class StringFileWriter implements FileWriter<String, StringFileContent> {
         }
     }
 
-    private void writeOutPutCreatorToMainDic(Map<String, StringFileContent> fileContentMap) {
+    private void writeOutPutCreatorToMainDir() {
         StringBuffer outPutCreatorPath = new StringBuffer();
         String outPutCreator = "OutputCreator.java";
         String originalOutputCreatorPath = "src/parser/OutputCreator.java";
-        // find the Main path
-        StringBuffer mainPath = new StringBuffer();
-        fileContentMap.forEach((k, v) -> {
-            if (k.contains("Main")) {
-                mainPath.append(k);
-            }
-        });
-        // input/moozeek/src/main/java/ui/Main.java
-        // get the Main path without Main
-        int lastSlashIndex = mainPath.lastIndexOf("/");
-        String pathToMainDic = mainPath.substring(0, lastSlashIndex + 1);
+
         // inject outputcreator to make new path
         // 1) add path to dic of main 2)add file name .java
-        outPutCreatorPath.append(pathToMainDic);
-        outPutCreatorPath.append(outPutCreator);
+        outPutCreatorPath.append(mainDirPath);
+        outPutCreatorPath.append("/" + outPutCreator);
         // read outputcreator
         StringFileContent sfc = null;
         try {
             Path path = Paths.get(originalOutputCreatorPath);
             String content1 = Files.readString(path);
-            sfc = new StringFileContent(content1);
+            String dirName = mainDirPath.substring(mainDirPath.lastIndexOf("/") + 1);
+            StringBuffer contentAddPackage = new StringBuffer();
+            contentAddPackage.append("package " + dirName + ";\n" + content1);
+            sfc = new StringFileContent(contentAddPackage.toString());
         } catch (IOException e) {
             e.printStackTrace();
         }

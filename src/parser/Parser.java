@@ -1,11 +1,16 @@
 package parser;
 
+import reader.StringFileContent;
+
+import java.util.HashMap;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Parser {
+    private String mainDirPath;
+    private String importString;
 
-    private final String importString = "import ui.OutputCreator; \n";
     // regex taken from Stackoverflow post
     // https://stackoverflow.com/questions/37403641/regex-to-fetch-the-correct-java-class-name
     private final String regexForClass = "(?<=\\n|\\A)(?:public\\s)?(class|abstract class|enum)\\s([^\\n\\s]*)";
@@ -13,7 +18,43 @@ public class Parser {
     // https://stackoverflow.com/questions/35912934/how-to-match-a-method-block-using-regex
     private final String regexForFunc= "((?:(?:public|private|protected|static|final|synchronized|volatile)\\s+)*)\\s*(\\w+)\\s*(\\w+)\\(.*?\\)\\s*";
 
-    public String parseJavaFile(String javaString) {
+    public Map<String, StringFileContent> parse(Map<String, StringFileContent> contents) {
+        // get mainFileDir
+        mainDirPath = findMainFileDirPath(contents);
+        // make importString
+        //1) get dir name
+        String dirName = mainDirPath.substring(mainDirPath.lastIndexOf("/") + 1);
+        //2) make importString
+        importString = "import "+ dirName+ ".OutputCreator; \n";
+        // parse files
+        Map<String, StringFileContent> newFileContents = new HashMap<>();
+        contents.forEach((k, v) -> {
+            String newV = parseJavaFile(v.content);
+            StringFileContent newStringFileContent = new StringFileContent(newV);
+            newFileContents.put(k, newStringFileContent);
+        });
+        return newFileContents;
+    }
+
+    private String findMainFileDirPath(Map<String, StringFileContent> fileContentMap) {
+        StringBuffer mainPath = new StringBuffer();
+        // get Main.java path
+        fileContentMap.forEach((k, v) -> {
+            if (isMainPath(k)) {
+                mainPath.append(k);
+            }
+        });
+        int lastSlashIndex = mainPath.lastIndexOf("/");
+        // cut it before Main.java  (path to Main.java dir)
+        return mainPath.substring(0, lastSlashIndex);
+    }
+
+    private boolean isMainPath(String mainPath) {
+        int lastSlashIndex = mainPath.lastIndexOf("/");
+        return mainPath.substring(lastSlashIndex).contains("Main");
+    }
+
+    private String parseJavaFile(String javaString) {
         // if the java passed in is an interface then no modification required
         if (checkIfInterface(javaString)) {
             return javaString;
@@ -186,5 +227,9 @@ public class Parser {
     // input className; check whether the class is Main, we will append diff code to Main like write file
     private Boolean isMainFile(String fileName) {
         return fileName.equals("Main");
+    }
+
+    public String getMainDirPath() {
+        return mainDirPath;
     }
 }
