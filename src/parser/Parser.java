@@ -153,9 +153,11 @@ public class Parser {
         Pattern pattern = Pattern.compile(regexForClass);
         Matcher m = pattern.matcher(javaString);
         if (m.find()) {
-            //String classnName = m.group(0);
-            String[] splitStr = javaString.split("\\s+");
-            return splitStr[splitStr.length - 2];
+            String className = m.group(0);
+            int pos = className.lastIndexOf("class");
+//            String[] splitStr = javaString.split("\\s+");
+            className = className.substring(pos+5).trim();
+            return className;
         } else {
             throw new RuntimeException("Cannot find class name.");
         }
