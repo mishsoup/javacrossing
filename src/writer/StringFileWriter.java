@@ -26,7 +26,7 @@ public class StringFileWriter implements FileWriter<String, StringFileContent> {
         OutputStream outPut = null;
         try {
             outPut = new FileOutputStream(new File(path));
-            outPut.write(content.getBytes(), 0, content.length());
+            outPut.write(content.getBytes());
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
