@@ -30,6 +30,9 @@ public class StringReader implements FileReader<String, StringFileContent> {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        if (paths.size() == 0) {
+            throw new RuntimeException("Can not find any java file in input directory.");
+        }
         for (String filePath: paths) {
             try {
                 Path path = Paths.get(filePath);
@@ -37,7 +40,7 @@ public class StringReader implements FileReader<String, StringFileContent> {
                 StringFileContent stringFileContent = new StringFileContent(content1);
                 fileContents.put(filePath, stringFileContent);
             } catch (IOException e) {
-                e.printStackTrace();
+                throw new RuntimeException("Failed to read file: Path " + filePath);
             }
         }
     }

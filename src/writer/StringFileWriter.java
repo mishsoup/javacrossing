@@ -17,7 +17,7 @@ public class StringFileWriter implements FileWriter<String, StringFileContent> {
 
     public void writeFiles(Map<String, StringFileContent> fileContents) {
         // update all files in input project
-        fileContents.forEach((k, v) -> writeFile(k, v.content));
+        fileContents.forEach((k, v) -> writeFile(k, v.getContent()));
         // inject our OutputCreator to the dic of main in the input project
         writeOutPutCreatorToMainDir();
     }
@@ -28,12 +28,12 @@ public class StringFileWriter implements FileWriter<String, StringFileContent> {
             outPut = new FileOutputStream(new File(path));
             outPut.write(content.getBytes());
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new RuntimeException("Failed to write file: Path " + path);
         } finally {
             try {
                 outPut.close();
             } catch (IOException e) {
-                e.printStackTrace();
+                throw new RuntimeException("Failed to close OutputStream writer.");
             }
         }
     }
@@ -57,9 +57,9 @@ public class StringFileWriter implements FileWriter<String, StringFileContent> {
             contentAddPackage.append("package " + dirName + ";\n" + content1);
             sfc = new StringFileContent(contentAddPackage.toString());
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new RuntimeException("Can not inject OutputCreator to directory of the input project.");
         }
         // write it to project
-        writeFile(outPutCreatorPath.toString(), sfc.content);
+        writeFile(outPutCreatorPath.toString(), sfc.getContent());
     }
 }

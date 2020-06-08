@@ -34,7 +34,7 @@ public class Parser {
         // parse files
         Map<String, StringFileContent> newFileContents = new HashMap<>();
         contents.forEach((k, v) -> {
-            String newV = parseJavaFile(v.content);
+            String newV = parseJavaFile(v.getContent());
             StringFileContent newStringFileContent = new StringFileContent(newV);
             newFileContents.put(k, newStringFileContent);
         });

@@ -1,8 +1,12 @@
 package reader;
 
 public class StringFileContent {
-    public String content = "";
+    private String content;
     public StringFileContent(String input) {
         content = input;
+    }
+
+    public String getContent() {
+        return content;
     }
 }
