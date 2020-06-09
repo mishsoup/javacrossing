@@ -18,9 +18,7 @@ public class Main {
         // parse file
         Map<String, StringFileContent> newFileContents = parser.parse(fileContents);
 
-
         // write file
-
         stringFileWriter.setMainDirPath(parser.getMainDirPath());
         stringFileWriter.writeFiles(newFileContents);
 

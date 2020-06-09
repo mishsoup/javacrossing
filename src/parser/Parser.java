@@ -233,7 +233,7 @@ public class Parser {
             // injecting code to where the first { is found
             res = "{ \n" +
                     "        OutputCreator outputCreator = OutputCreator.getTheOutputCreator();\n" +
-                    "        outputCreator.addFuncStartJSON(\""+className+"\", \"Start_\" + \""+funcName+"\");\n";
+                    "        outputCreator.addFuncJSON(\""+className+"\", \"Start_\" + \""+funcName+"\");\n";
         }
         return res;
     }
@@ -244,7 +244,7 @@ public class Parser {
             res = "    outputCreator.addMainEndJSON(\"" + className + "\", \"End_\" + \"" + funcName + "\");\n" +
                     "    outputCreator.writeJSONFile(\"result.txt\");\n";
         } else {
-            res = "    outputCreator.addFuncEndJSON(\"" + className + "\", \"End_\" + \"" + funcName + "\");\n";
+            res = "    outputCreator.addFuncJSON(\"" + className + "\", \"End_\" + \"" + funcName + "\");\n";
         }
         return res;
     }
@@ -256,7 +256,7 @@ public class Parser {
                             "outputCreator.writeJSONFile(\"result.txt\");\n" +
                             "       return";
         } else {
-            res = "outputCreator.addFuncEndJSON(\""+className+"\", \"End_\" + \""+funcName+"\");\n " +
+            res = "outputCreator.addFuncJSON(\""+className+"\", \"End_\" + \""+funcName+"\");\n " +
                             "       return";
         }
         return res;
