@@ -1,29 +1,30 @@
 package model;
 
 import org.json.JSONObject;
-import util.Colors;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Frame {
 
     private List<String> xAxis;
     private List<Integer> yAxis;
-    private List<Integer> size;
-    private List<Colors> colors;
+    private List<Double> size;
+    private List<String> colors;
+    private List<String> texts;
 
-    public Frame(List<String> xAxis, List<Integer> yAxis, List<Integer> size, List<Colors> colors) {
-        this.xAxis = xAxis;
-        this.yAxis = yAxis;
-        this.size = size;
-        this.colors = colors;
+    public Frame(List<String> xAxis, List<Integer> yAxis, List<Double> size, List<String> colors, List<String> texts) {
+        this.xAxis = new ArrayList<>(xAxis);
+        this.yAxis = new ArrayList<>(yAxis);
+        this.size = new ArrayList<>(size);
+        this.colors = new ArrayList<>(colors);
+        this.texts = new ArrayList<>(texts);
     }
 
 
     public JSONObject toJson() {
         return null;
     }
-
 
     public List<String> getxAxis() {
         return xAxis;
@@ -33,11 +34,13 @@ public class Frame {
         return yAxis;
     }
 
-    public List<Integer> getSize() {
+    public List<Double> getSize() {
         return size;
     }
 
-    public List<Colors> getColors() {
+    public List<String> getColors() {
         return colors;
     }
+
+    public List<String> getTexts() { return texts; }
 }
