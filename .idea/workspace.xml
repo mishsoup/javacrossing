@@ -1,16 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="72587607-207c-46e3-8054-08e10c2acaf5" name="Default Changelist" comment="1) update extractor which reads all .java in input package and output the Map&lt;String path, FileContent content&gt;; content is a large string wrapper">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/controller/FrameManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/controller/PlotlyController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/Frame.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/JavaClass.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/JavaFunctions.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/util/Color.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/util/Colors.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/input.music" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/input.music" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/exceptions/DuplicateNameException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/exceptions/WrongNameException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/visitors/PlayerVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/src/main/java/visitors/PlayerVisitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/target/classes/libs/Tokenizer.class" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/target/classes/libs/Tokenizer.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/javacrossing/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/javacrossing/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/javacrossing/OutputCreator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/javacrossing/OutputCreator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/javacrossing/parser/OldParser.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/javacrossing/parser/OldParser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/javacrossing/reader/FileReader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/javacrossing/reader/FileReader.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/javacrossing/reader/StringFileContent.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/javacrossing/reader/StringFileContent.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/javacrossing/reader/StringReader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/javacrossing/reader/StringReader.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/javacrossing/writer/FileWriter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/javacrossing/writer/FileWriter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/javacrossing/writer/StringFileWriter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/javacrossing/writer/StringFileWriter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/parser/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/parser/Parser.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +53,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
@@ -52,6 +80,12 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="android.sdk.path" value="$PROJECT_DIR$/../../../CPSC210/android-sdk" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/input/moozeek/src/main/java/ui" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -124,46 +158,58 @@
       <screen x="0" y="23" width="1440" height="826" />
     </state>
     <state x="341" y="23" width="1024" height="826" key="#Project_Structure/0.23.1440.826@0.23.1440.826" timestamp="1591409733095" />
+    <state x="765" y="246" key="#com.intellij.ide.util.MemberChooser" timestamp="1591856126023">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="765" y="246" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1591856126023" />
+    <state x="690" y="289" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1591855664189">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="690" y="289" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1591855664189" />
     <state x="0" y="23" width="1440" height="826" key="CommitChangelistDialog2" timestamp="1591570393593">
       <screen x="0" y="23" width="1440" height="828" />
     </state>
     <state x="0" y="23" width="1440" height="826" key="CommitChangelistDialog2/0.23.1440.826@0.23.1440.826" timestamp="1591569950296" />
     <state x="0" y="23" key="CommitChangelistDialog2/0.23.1440.828@0.23.1440.828" timestamp="1591570393593" />
     <state x="0" y="23" width="1440" height="829" key="CommitChangelistDialog2/0.23.1440.829@0.23.1440.829" timestamp="1591566862600" />
-    <state width="1298" height="351" key="GridCell.Tab.0.bottom" timestamp="1591570438618">
-      <screen x="0" y="23" width="1440" height="827" />
+    <state width="1877" height="295" key="GridCell.Tab.0.bottom" timestamp="1591857085844">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1419" height="476" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1591413492373" />
+    <state width="1877" height="295" key="GridCell.Tab.0.bottom/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1591857085844" />
     <state width="1270" height="82" key="GridCell.Tab.0.bottom/0.23.1440.826@0.23.1440.826" timestamp="1591562349310" />
     <state width="1298" height="351" key="GridCell.Tab.0.bottom/0.23.1440.827@0.23.1440.827" timestamp="1591570438618" />
     <state width="1298" height="351" key="GridCell.Tab.0.bottom/0.23.1440.828@0.23.1440.828" timestamp="1591570409191" />
     <state width="1362" height="148" key="GridCell.Tab.0.bottom/0.23.1440.829@0.23.1440.829" timestamp="1591566595034" />
     <state width="1362" height="412" key="GridCell.Tab.0.bottom/0.23.1440.830@0.23.1440.830" timestamp="1591564324695" />
     <state width="1157" height="138" key="GridCell.Tab.0.bottom/0.23.1440.836@0.23.1440.836" timestamp="1591511642384" />
-    <state width="1298" height="351" key="GridCell.Tab.0.center" timestamp="1591570438615">
-      <screen x="0" y="23" width="1440" height="827" />
+    <state width="1877" height="295" key="GridCell.Tab.0.center" timestamp="1591857085844">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1419" height="476" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1591413492370" />
+    <state width="1877" height="295" key="GridCell.Tab.0.center/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1591857085844" />
     <state width="1270" height="82" key="GridCell.Tab.0.center/0.23.1440.826@0.23.1440.826" timestamp="1591562349309" />
     <state width="1298" height="351" key="GridCell.Tab.0.center/0.23.1440.827@0.23.1440.827" timestamp="1591570438615" />
     <state width="1298" height="351" key="GridCell.Tab.0.center/0.23.1440.828@0.23.1440.828" timestamp="1591570409189" />
     <state width="1362" height="148" key="GridCell.Tab.0.center/0.23.1440.829@0.23.1440.829" timestamp="1591566595031" />
     <state width="1362" height="412" key="GridCell.Tab.0.center/0.23.1440.830@0.23.1440.830" timestamp="1591564324694" />
     <state width="1157" height="138" key="GridCell.Tab.0.center/0.23.1440.836@0.23.1440.836" timestamp="1591511642383" />
-    <state width="1298" height="351" key="GridCell.Tab.0.left" timestamp="1591570438612">
-      <screen x="0" y="23" width="1440" height="827" />
+    <state width="1877" height="295" key="GridCell.Tab.0.left" timestamp="1591857085844">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1419" height="476" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1591413492370" />
+    <state width="1877" height="295" key="GridCell.Tab.0.left/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1591857085844" />
     <state width="1270" height="82" key="GridCell.Tab.0.left/0.23.1440.826@0.23.1440.826" timestamp="1591562349308" />
     <state width="1298" height="351" key="GridCell.Tab.0.left/0.23.1440.827@0.23.1440.827" timestamp="1591570438612" />
     <state width="1298" height="351" key="GridCell.Tab.0.left/0.23.1440.828@0.23.1440.828" timestamp="1591570409188" />
     <state width="1362" height="148" key="GridCell.Tab.0.left/0.23.1440.829@0.23.1440.829" timestamp="1591566595029" />
     <state width="1362" height="412" key="GridCell.Tab.0.left/0.23.1440.830@0.23.1440.830" timestamp="1591564324694" />
     <state width="1157" height="138" key="GridCell.Tab.0.left/0.23.1440.836@0.23.1440.836" timestamp="1591511642383" />
-    <state width="1298" height="351" key="GridCell.Tab.0.right" timestamp="1591570438617">
-      <screen x="0" y="23" width="1440" height="827" />
+    <state width="1877" height="295" key="GridCell.Tab.0.right" timestamp="1591857085844">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1419" height="476" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1591413492372" />
+    <state width="1877" height="295" key="GridCell.Tab.0.right/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1591857085844" />
     <state width="1270" height="82" key="GridCell.Tab.0.right/0.23.1440.826@0.23.1440.826" timestamp="1591562349310" />
     <state width="1298" height="351" key="GridCell.Tab.0.right/0.23.1440.827@0.23.1440.827" timestamp="1591570438617" />
     <state width="1298" height="351" key="GridCell.Tab.0.right/0.23.1440.828@0.23.1440.828" timestamp="1591570409190" />
@@ -190,9 +236,10 @@
     </state>
     <state width="1334" height="244" key="GridCell.Tab.1.right/0.23.1440.826@0.23.1440.826" timestamp="1591437719504" />
     <state width="1334" height="244" key="GridCell.Tab.1.right/0.23.1440.829@0.23.1440.829" timestamp="1591564386639" />
-    <state x="356" y="23" width="1024" height="826" key="SettingsEditor" timestamp="1591412806858">
-      <screen x="0" y="23" width="1440" height="827" />
+    <state x="475" y="0" width="1024" height="826" key="SettingsEditor" timestamp="1591853420857">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
+    <state x="475" y="0" key="SettingsEditor/0.0.1920.1080/1920.0.1920.1080@0.0.1920.1080" timestamp="1591853420857" />
     <state x="356" y="23" width="1024" height="826" key="SettingsEditor/0.23.1440.826@0.23.1440.826" timestamp="1591412580089" />
     <state x="356" y="23" key="SettingsEditor/0.23.1440.827@0.23.1440.827" timestamp="1591412806858" />
     <state x="297" y="167" key="Vcs.Push.Dialog.v2" timestamp="1591569952932">
