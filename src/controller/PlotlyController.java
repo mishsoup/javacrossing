@@ -73,6 +73,7 @@ public class PlotlyController {
             }
             fm.saveFrame();
         }
+        fm.getClass();
     }
 
     public void savePlotlyFramesToFile(String fileName) {
@@ -80,7 +81,7 @@ public class PlotlyController {
     }
 
     private boolean isEndingFunction(String functionName) {
-        return functionName.startsWith("End");
+        return functionName.contains("End");
     }
 
     private String parseFunctionString(String functionName) {
