@@ -23,6 +23,10 @@ public class Parser {
     int countOfBracket = 0;
     Boolean stillInFunCall = false;
 
+    public String getMainDirPath() {
+        return mainDirPath;
+    }
+
     public Map<String, StringFileContent> parse(Map<String, StringFileContent> contents) {
         // get mainFileDir
         mainDirPath = findMainFileDirPath(contents);
@@ -34,7 +38,7 @@ public class Parser {
         // parse files
         Map<String, StringFileContent> newFileContents = new HashMap<>();
         contents.forEach((k, v) -> {
-            String newV = parseJavaFile(v.content);
+            String newV = parseJavaFile(v.getContent());
             StringFileContent newStringFileContent = new StringFileContent(newV);
             newFileContents.put(k, newStringFileContent);
         });
@@ -89,7 +93,6 @@ public class Parser {
                 outputString.append(currentLine + "\n");
             } else if (classM.find()) {
                 className = findClassName(currentLine);
-                //TODO KEVIN comment out since for test
                 outputString.append(importString + "\n");
                 outputString.append(currentLine + "\n");
             } else if (funcM.find() && !stillInFunCall &&
@@ -106,37 +109,10 @@ public class Parser {
     }
 
     private String processStillInFunc(String currentLine) {
-        if (currentLine.contains("return")) {
-            if (isMainFile(className)) {
-                currentLine = currentLine.replaceAll(
-                        "return",
-                        "outputCreator.addMainEndJSON(\""+className+"\", \"End_\" + \""+funcName+"\");\n " +
-                                "outputCreator.writeJSONFile(\"result.txt\");\n" +
-                                "       return");
-            }else {
-                currentLine = currentLine.replaceAll(
-                        "return",
-                        "outputCreator.addFuncEndJSON(\""+className+"\", \"End_\" + \""+funcName+"\");\n " +
-                                "       return");
-            }
-            hasReturn = true;
-        }
+        // if has return, use return form add End JSON; otherwiese do nothing return back currentline
+        currentLine = checkHasReturnAndAddEndJSON(currentLine);
         processBrackets(currentLine);
-        if (!hasReturn && countOfBracket == 0 && currentLine.contains("}")) {
-            int pos = currentLine.lastIndexOf('}');
-            if (isMainFile(className)) {
-                currentLine = currentLine.substring(0,pos) +
-                        "    outputCreator.addMainEndJSON(\""+className+"\", \"End_\" + \""+funcName+"\");\n" +
-                        "outputCreator.writeJSONFile(\"result.txt\");\n"
-                        + currentLine.substring(pos+1)
-                        + "    } \n";
-            } else {
-                currentLine = currentLine.substring(0,pos) +
-                        "    outputCreator.addFuncEndJSON(\""+className+"\", \"End_\" + \""+funcName+"\");\n"
-                        + currentLine.substring(pos+1)
-                        + "    } \n";
-            }
-        }
+        currentLine = checkEndBracketAndAddEndJSON(currentLine);
         // end of function parsing
         if (countOfBracket == 0 ){
             resetFuncVars();
@@ -147,53 +123,46 @@ public class Parser {
     private String processFuncNameFound(String currentLine) {
         stillInFunCall = true;
         funcName = findFunctionName(currentLine);
-        if (isMainFile(className)) {
-            // injecting code to where the first { is found
-            currentLine = currentLine.replaceFirst("\\{", "{ \n" +
-                    "        OutputCreator outputCreator = OutputCreator.getTheOutputCreator();\n" +
-                    "        outputCreator.addMainStartJSON(\""+className+"\", \"Start_\" + \""+funcName+"\");\n");
-        } else {
-
-            // injecting code to where the first { is found
-            currentLine = currentLine.replaceFirst("\\{", "{ \n" +
-                    "        OutputCreator outputCreator = OutputCreator.getTheOutputCreator();\n" +
-                    "        outputCreator.addFuncStartJSON(\""+className+"\", \"Start_\" + \""+funcName+"\");\n");
-        }
-
-        if (currentLine.contains("return")) {
-            if (isMainFile(className)) {
-                currentLine = currentLine.replaceAll(
-                        "return",
-                        "outputCreator.addMainEndJSON(\""+className+"\", \"End_\" + \""+funcName+"\");\n " +
-                                "outputCreator.writeJSONFile(\"result.txt\");\n" +
-                                "       return");
-            } else {
-                currentLine = currentLine.replaceAll(
-                        "return",
-                        "outputCreator.addFuncEndJSON(\""+className+"\", \"End_\" + \""+funcName+"\");\n " +
-                                "       return");
-            }
-            hasReturn = true;
-        }
+        currentLine = addStartJSON(currentLine);
+        currentLine = checkHasReturnAndAddEndJSON(currentLine);
         processBrackets(currentLine);
-        if (!hasReturn && countOfBracket == 0 && currentLine.contains("}")) {
-            int pos = currentLine.lastIndexOf('}');
-            if (isMainFile(className)) {
-                currentLine = currentLine.substring(0,pos) +
-                        "    outputCreator.addMainEndJSON(\""+className+"\", \"End_\" + \""+funcName+"\");\n" +
-                        "outputCreator.writeJSONFile(\"result.txt\");\n"
-                        + currentLine.substring(pos+1)
-                        + "    } \n";
-            } else {
-                currentLine = currentLine.substring(0,pos) +
-                        "    outputCreator.addFuncEndJSON(\""+className+"\", \"End_\" + \""+funcName+"\");\n"
-                        + currentLine.substring(pos+1)
-                        + "    } \n";
-            }
-        }
+        currentLine = checkEndBracketAndAddEndJSON(currentLine);
+
         // end of function parsing
         if (countOfBracket == 0 ){
             resetFuncVars();
+        }
+        return currentLine;
+    }
+
+    private String addStartJSON(String currentLine) {
+        String res;
+        res = currentLine.replaceFirst("\\{", makeStartJSONCode());
+
+        return res;
+    }
+
+    // check whether has [return], if yes, add return type END JSON; otherwise no change in currentLine
+    private String checkHasReturnAndAddEndJSON(String currentLine) {
+        String res;
+        if (currentLine.contains("return")) {
+            res = currentLine.replaceAll(
+                    "return",
+                    makeReturnEndJSONCode());
+            hasReturn = true;
+            return res;
+        } else {
+            return currentLine;
+        }
+    }
+
+    // check whether has }, if yes, add bracket type END JSON; otherwise no change in currentLine
+    private String checkEndBracketAndAddEndJSON(String currentLine) {
+        String res;
+        if (!hasReturn && countOfBracket == 0 && currentLine.contains("}")) {
+            int pos = currentLine.lastIndexOf('}');
+            res = currentLine.substring(0, pos) + makeBracketEndJSONCode() + "    } \n";
+            return res;
         }
         return currentLine;
     }
@@ -253,7 +222,44 @@ public class Parser {
         return fileName.equals("Main");
     }
 
-    public String getMainDirPath() {
-        return mainDirPath;
+    private String makeStartJSONCode() {
+        String res;
+        if (isMainFile(className)) {
+            // injecting code to where the first { is found
+            res = "{ \n" +
+                    "        OutputCreator outputCreator = OutputCreator.getTheOutputCreator();\n" +
+                    "        outputCreator.addMainStartJSON(\""+className+"\", \"Start_\" + \""+funcName+"\");\n";
+        } else {
+            // injecting code to where the first { is found
+            res = "{ \n" +
+                    "        OutputCreator outputCreator = OutputCreator.getTheOutputCreator();\n" +
+                    "        outputCreator.addFuncJSON(\""+className+"\", \"Start_\" + \""+funcName+"\");\n";
+        }
+        return res;
     }
+
+    private String makeBracketEndJSONCode() {
+        String res;
+        if (isMainFile(className)) {
+            res = "    outputCreator.addMainEndJSON(\"" + className + "\", \"End_\" + \"" + funcName + "\");\n" +
+                    "    outputCreator.writeJSONFile(\"result.txt\");\n";
+        } else {
+            res = "    outputCreator.addFuncJSON(\"" + className + "\", \"End_\" + \"" + funcName + "\");\n";
+        }
+        return res;
+    }
+
+    private String makeReturnEndJSONCode() {
+        String res;
+        if (isMainFile(className)) {
+            res = "outputCreator.addMainEndJSON(\""+className+"\", \"End_\" + \""+funcName+"\");\n " +
+                            "outputCreator.writeJSONFile(\"result.txt\");\n" +
+                            "       return";
+        } else {
+            res = "outputCreator.addFuncJSON(\""+className+"\", \"End_\" + \""+funcName+"\");\n " +
+                            "       return";
+        }
+        return res;
+    }
+
 }
