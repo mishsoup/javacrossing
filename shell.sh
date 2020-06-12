@@ -15,3 +15,12 @@ java -Dfile.encoding=UTF-8 -classpath ./out/production/javacrossing:./dependency
 
 echo "Generated JSON input for front end"
 
+cp data.json ../javacrossing-react/src/archived_data.json
+
+echo "Copied the JSON input for front end to javacrossing-react"
+
+cd ../javacrossing-react/
+
+echo "Starting front-end"
+
+npm start
