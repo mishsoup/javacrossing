@@ -7,6 +7,7 @@ import org.json.JSONObject;
 import writer.JsonWriter;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class FrameManager {
@@ -18,15 +19,24 @@ public class FrameManager {
 
     private List<Frame> frames = new ArrayList<>();
 
+    // new list to keep track of which function maps to which index in the text array
+    private HashMap<String,Integer> classFuncToTextMap = new HashMap<>();
+
     private final double SIZE_SCALE_FACTOR = 0.2;
     private final double DEFAULT_SIZE = 10;
 
-    public void addDataPoint(JavaClass jClass, String text) {
+    public void addDataPoint(JavaClass jClass, String text, String funcName) {
         xAxis.add(jClass.getName());
         yAxis.add(jClass.getAvailableYPoint());
         size.add(DEFAULT_SIZE);
         colors.add(jClass.getColor());
         texts.add(text);
+        classFuncToTextMap.put(jClass.getName()+funcName, texts.size() - 1);
+    }
+
+    public void updateDataPoint(JavaClass jClass, String text, String funcName) {
+        int textIndex = classFuncToTextMap.get(jClass.getName()+funcName);
+        texts.set(textIndex, text);
     }
 
     public void scaleDataPoint(int index) {

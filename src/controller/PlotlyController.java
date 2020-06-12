@@ -52,6 +52,8 @@ public class PlotlyController {
             javaFxnName = parseFunctionString(javaFxnName);
             if (javaClass.isFunctionMember(javaFxnName)) {
                 javaClass.updateFunction(javaFxnName);
+                String hoverText =generateText(javaClass, javaFxnName);
+                fm.updateDataPoint(javaClass,hoverText, javaFxnName);
                 fm.scaleDataPoint(javaClass.getFunction(javaFxnName).getIndex());
             } else {
                 // create function entry
@@ -60,7 +62,7 @@ public class PlotlyController {
 
                 // generate text when hovered
                 String hoverText =generateText(javaClass, javaFxnName);
-                fm.addDataPoint(javaClass,hoverText);
+                fm.addDataPoint(javaClass,hoverText, javaFxnName);
             }
             fm.saveFrame();
         }

@@ -29,7 +29,6 @@ public class JavaClass {
     public void updateFunction(String fxnName) {
         JavaFunctions jF = this.functions.get(fxnName);
         jF.incrementOccurence();
-        // this.functions.put(fxnName, jF);
     }
 
     public boolean isFunctionMember(String fxnName) {
