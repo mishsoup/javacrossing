@@ -22,6 +22,7 @@ public class PlotlyController {
 
     private final String JSON_CLASSNAME = "classname";
     private final String JSON_FXNNAME = "function";
+    private final String JSON_FXNTIME = "time";
 
     private Map<String, JavaClass> javaClassesMap = new HashMap<>();
     private List<Frame> frames = new ArrayList<>();
@@ -41,23 +42,29 @@ public class PlotlyController {
 
             String javaClassName = jsn.getString(JSON_CLASSNAME);
             String javaFxnName = jsn.getString(JSON_FXNNAME);
+            long javaFxnTime = Long.parseLong(jsn.getString(JSON_FXNTIME));
 
             JavaClass javaClass = getOrAddJavaClass(javaClassName);
 
             // ignore ending call
             if (isEndingFunction(javaFxnName)) {
+                javaFxnName = parseFunctionString(javaFxnName);
+                long entryTime = javaClass.getFunction(javaFxnName).getEntryTime();
+                long timeUsed = javaFxnTime - entryTime;
+                long totalTime = javaClass.getFunction(javaFxnName).updateTotalTime(timeUsed);
+                fm.upDateTextWithTime(javaClass, javaFxnName, totalTime);
                 continue;
             }
 
             javaFxnName = parseFunctionString(javaFxnName);
             if (javaClass.isFunctionMember(javaFxnName)) {
-                javaClass.updateFunction(javaFxnName);
+                javaClass.updateFunction(javaFxnName, javaFxnTime);
                 String hoverText =generateText(javaClass, javaFxnName);
                 fm.updateDataPoint(javaClass,hoverText, javaFxnName);
                 fm.scaleDataPoint(javaClass.getFunction(javaFxnName).getIndex());
             } else {
                 // create function entry
-                javaClass.addFunction(javaFxnName, currentIndex);
+                javaClass.addFunction(javaFxnName, currentIndex, javaFxnTime);
                 currentIndex++;
 
                 // generate text when hovered

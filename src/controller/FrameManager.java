@@ -39,6 +39,18 @@ public class FrameManager {
         texts.set(textIndex, text);
     }
 
+    public void upDateTextWithTime(JavaClass jClass, String funcName, long timeUsed) {
+        int textIndex = classFuncToTextMap.get(jClass.getName()+funcName);
+        String txt = texts.get(textIndex);
+        if (txt.contains("ACCUMULATED")) {
+            int pos = txt.lastIndexOf('<');
+            String newtxt = txt.substring(0, pos) + "<br>ACCUMULATED TIME :"+timeUsed+"ms";
+            texts.set(textIndex, newtxt);
+        } else {
+            texts.set(textIndex, txt+"<br>ACCUMULATED TIME: "+timeUsed+"ms");
+        }
+    }
+
     public void scaleDataPoint(int index) {
         double scaledSize = this.size.get(index) + SIZE_SCALE_FACTOR;
         scaledSize = Math.round(scaledSize * 10)/10.0;

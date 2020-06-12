@@ -18,16 +18,17 @@ public class JavaClass {
         functions = new HashMap<>();
     }
 
-    public void updateOrAddFunction(String fxnName, int index) {
-        if (this.functions.containsKey(fxnName)) {
-            updateFunction(fxnName);
-        } else {
-            addFunction(fxnName, index);
-        }
-    }
+//    public void updateOrAddFunction(String fxnName, int index) {
+//        if (this.functions.containsKey(fxnName)) {
+//            updateFunction(fxnName);
+//        } else {
+//            addFunction(fxnName, index);
+//        }
+//    }
 
-    public void updateFunction(String fxnName) {
+    public void updateFunction(String fxnName, long entryTime) {
         JavaFunctions jF = this.functions.get(fxnName);
+        jF.setEntryTime(entryTime);
         jF.incrementOccurence();
     }
 
@@ -35,8 +36,8 @@ public class JavaClass {
         return this.functions.containsKey(fxnName);
     }
 
-    public void addFunction(String fxnName, int index) {
-        JavaFunctions javaFunction = new JavaFunctions(fxnName, index);
+    public void addFunction(String fxnName, int index, long entryTime) {
+        JavaFunctions javaFunction = new JavaFunctions(fxnName, index, entryTime);
         currentYPoint += Y_SPACING;
         this.functions.put(fxnName, javaFunction);
     }

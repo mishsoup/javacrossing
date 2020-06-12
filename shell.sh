@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 java  -Dfile.encoding=UTF-8 -classpath ./out/production/javacrossing:./dependency/json-20200518.jar Main
 
 echo "Code has been injected into the input project"
