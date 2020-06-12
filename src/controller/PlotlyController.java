@@ -53,7 +53,6 @@ public class PlotlyController {
                 long timeUsed = javaFxnTime - entryTime;
                 long totalTime = javaClass.getFunction(javaFxnName).updateTotalTime(timeUsed);
                 fm.upDateTextWithTime(javaClass, javaFxnName, totalTime);
-                fm.saveFrame();
                 continue;
             }
 
@@ -74,6 +73,7 @@ public class PlotlyController {
             }
             fm.saveFrame();
         }
+        fm.saveFrame();
     }
 
     public void savePlotlyFramesToFile(String fileName) {
