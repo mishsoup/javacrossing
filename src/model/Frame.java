@@ -42,6 +42,7 @@ public class Frame {
         JSONObject markerObj = getMarkerObject();
         dataObject.put("x", this.xAxis.toArray());
         dataObject.put("y", this.yAxis.toArray());
+        dataObject.put("text", texts.toArray());
         dataObject.put("mode", "markers");
         dataObject.put("marker", markerObj);
         return dataObject;
