@@ -4,6 +4,8 @@ import reader.JsonReader;
 import writer.JsonWriter;
 
 import java.io.File;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 public class PlotlyMain {
@@ -14,8 +16,18 @@ public class PlotlyMain {
         String inputDic = "input";
         File input = new File("input");
         String[] childPath = input.list();
-        if (childPath[1] == null) throw new RuntimeException("Can not find the input Project path");
-        String dataPath = inputDic + "/" +  childPath[1] + "/result.txt";
+        if (childPath == null) throw new RuntimeException("Can not find the input project path");
+        List<String> childPathList = Arrays.asList(childPath);
+        //TODO .DS_Store which is special file in Mac, we try to omit it
+        StringBuffer subPathOfInput = new StringBuffer();
+        childPathList.forEach( x -> {
+            if (!x.contains("DS_Store")) {
+                subPathOfInput.append(x);
+            }
+        });
+
+        if ( subPathOfInput.length() == 0) throw new RuntimeException("Can not find the input Project path");
+        String dataPath = inputDic + "/" +  subPathOfInput + "/result.txt";
         // read the data
         Map<String, JSONArray> jsonMap =  jr.extract(dataPath);
         JSONArray parsedResults = jsonMap.get(JsonReader.RESULT_KEY);
