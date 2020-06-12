@@ -73,7 +73,6 @@ public class PlotlyController {
             }
             fm.saveFrame();
         }
-        fm.getClass();
     }
 
     public void savePlotlyFramesToFile(String fileName) {
