@@ -21,6 +21,8 @@
   <component name="ChangeListManager">
     <list default="true" id="72587607-207c-46e3-8054-08e10c2acaf5" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/input/moozeek/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/data.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/input/moozeek/input.music" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/input.music" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/BASEKEY.java" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/BASEKEY.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/BASESOUND.java" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/BASESOUND.java" afterDir="false" />
@@ -88,6 +90,7 @@
       <change beforePath="$PROJECT_DIR$/input/moozeek/target/classes/ui/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/target/classes/ui/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/input/moozeek/target/classes/visitors/PlayerVisitor.class" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/target/classes/visitors/PlayerVisitor.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/input/moozeek/target/test-classes/visitors/PlayerVisitorTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/target/test-classes/visitors/PlayerVisitorTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/result.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
