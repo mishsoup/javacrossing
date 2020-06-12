@@ -1,5 +1,6 @@
 package model;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -22,8 +23,35 @@ public class Frame {
     }
 
 
-    public JSONObject toJson() {
-        return null;
+    public JSONObject toJson(String frameName) {
+        JSONObject jsonObject = new JSONObject();
+        JSONArray dataArray;
+
+        JSONObject dataObject = getDataObject();
+        List<JSONObject> dataList = new ArrayList<>();
+        dataList.add(dataObject);
+        dataArray = new JSONArray(dataList);
+
+        jsonObject.put("data", dataArray);
+        jsonObject.put("name", frameName);
+        return jsonObject;
+    }
+
+    private JSONObject getDataObject() {
+        JSONObject dataObject = new JSONObject();
+        JSONObject markerObj = getMarkerObject();
+        dataObject.put("x", this.xAxis.toArray());
+        dataObject.put("y", this.yAxis.toArray());
+        dataObject.put("mode", "markers");
+        dataObject.put("marker", markerObj);
+        return dataObject;
+    }
+
+    private JSONObject getMarkerObject() {
+        JSONObject marker = new JSONObject();
+        marker.put("color", this.colors.toArray());
+        marker.put("size", this.size.toArray());
+        return marker;
     }
 
     public List<String> getxAxis() {

@@ -1,4 +1,6 @@
 
+import org.json.JSONObject;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -43,6 +45,23 @@ public class OutputCreator {
     public static void writeJSONFile(String path) {
         OutputStream outPut = null;
         String content = getJsonOutputAry();
+        try {
+            outPut = new FileOutputStream(new File(path));
+            outPut.write(content.getBytes(), 0, content.length());
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                outPut.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public static void writeJSONFile(String path, JSONObject jsonObject) {
+        OutputStream outPut = null;
+        String content = jsonObject.toString();
         try {
             outPut = new FileOutputStream(new File(path));
             outPut.write(content.getBytes(), 0, content.length());

@@ -14,6 +14,7 @@ public class JavaClass {
 
     public JavaClass(String name, String color) {
         this.name = name;
+        this.color = color;
         functions = new HashMap<>();
     }
 

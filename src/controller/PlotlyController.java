@@ -28,13 +28,15 @@ public class PlotlyController {
 
     private int currentIndex = 0;
 
-    public PlotlyController() {
+    public PlotlyController(JSONArray jsonArray) {
+        json = jsonArray;
         fm = new FrameManager();
         colorManager = new Color();
     }
 
     public void drawPlotly() {
         for (Object jsonObject : this.json) {
+            // System.out.println(jsonObject.toString());
             JSONObject jsn  = (JSONObject) jsonObject;
 
             String javaClassName = jsn.getString(JSON_CLASSNAME);
@@ -42,6 +44,12 @@ public class PlotlyController {
 
             JavaClass javaClass = getOrAddJavaClass(javaClassName);
 
+            // ignore ending call
+            if (isEndingFunction(javaFxnName)) {
+                continue;
+            }
+
+            javaFxnName = parseFunctionString(javaFxnName);
             if (javaClass.isFunctionMember(javaFxnName)) {
                 javaClass.updateFunction(javaFxnName);
                 fm.scaleDataPoint(javaClass.getFunction(javaFxnName).getIndex());
@@ -56,6 +64,19 @@ public class PlotlyController {
             }
             fm.saveFrame();
         }
+    }
+
+    public void savePlotlyFramesToFile(String fileName) {
+        fm.saveFramesToFile(fileName);
+    }
+
+    private boolean isEndingFunction(String functionName) {
+        return functionName.startsWith("End");
+    }
+
+    private String parseFunctionString(String functionName) {
+        String[] functionSplit = functionName.split("_");
+        return functionSplit[1];
     }
 
     private String generateText(JavaClass jc, String fxnName) {

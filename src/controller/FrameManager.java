@@ -2,6 +2,9 @@ package controller;
 
 import model.Frame;
 import model.JavaClass;
+import org.json.JSONArray;
+import org.json.JSONObject;
+import writer.JsonWriter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +30,7 @@ public class FrameManager {
     }
 
     public void scaleDataPoint(int index) {
-        double scaledSize = this.size.get(index) * SIZE_SCALE_FACTOR;
+        double scaledSize = this.size.get(index) + SIZE_SCALE_FACTOR;
         this.size.set(index, scaledSize);
     }
 
@@ -36,8 +39,32 @@ public class FrameManager {
         this.frames.add(frame);
     }
 
-    private String generateText() {
-        return "";
+
+    public void saveFramesToFile(String fileName) {
+        JSONArray framesJSONArray = framesToJSONArray();
+        JSONObject framesObject = new JSONObject();
+
+        framesObject.put("results", framesJSONArray);
+        JsonWriter.writeFile(fileName, framesObject);
     }
 
+    private JSONArray framesToJSONArray() {
+        JSONArray jsonArray;
+        List<JSONObject> jsonArrayElements = new ArrayList<>();
+        for (int idx = 0; idx < frames.size(); idx++) {
+            JSONObject frameJson = frameToJson(idx);
+            jsonArrayElements.add(frameJson);
+            System.out.println(frameJson.toString());
+        }
+        jsonArray = new JSONArray(jsonArrayElements);
+        return jsonArray;
+    }
+
+    private JSONObject frameToJson(int index) {
+        int frameNumber = index + 1;
+        Frame frame = frames.get(index);
+        String frameName = "frame" + frameNumber;
+        JSONObject frameJson = frame.toJson(frameName);
+        return frameJson;
+    }
 }
