@@ -90,7 +90,8 @@
       <change beforePath="$PROJECT_DIR$/input/moozeek/target/classes/ui/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/target/classes/ui/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/input/moozeek/target/classes/visitors/PlayerVisitor.class" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/target/classes/visitors/PlayerVisitor.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/input/moozeek/target/test-classes/visitors/PlayerVisitorTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/target/test-classes/visitors/PlayerVisitorTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/result.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/javacrossing-react/src/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/javacrossing-react/src/data.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/FrameManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/FrameManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

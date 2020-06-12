@@ -18,7 +18,7 @@ public class FrameManager {
 
     private List<Frame> frames = new ArrayList<>();
 
-    private final double SIZE_SCALE_FACTOR = 3;
+    private final double SIZE_SCALE_FACTOR = 0.2;
     private final double DEFAULT_SIZE = 10;
 
     public void addDataPoint(JavaClass jClass, String text) {
