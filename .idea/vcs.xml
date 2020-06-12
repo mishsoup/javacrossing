@@ -3,5 +3,6 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/input/moozeek" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/javacrossing-react" vcs="Git" />
   </component>
 </project>
