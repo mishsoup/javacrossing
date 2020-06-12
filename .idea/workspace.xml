@@ -19,23 +19,24 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="72587607-207c-46e3-8054-08e10c2acaf5" name="Default Changelist" comment="1) update extractor which reads all .java in input package and output the Map&lt;String path, FileContent content&gt;; content is a large string wrapper">
-      <change afterPath="$PROJECT_DIR$/result.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/PlotlyMain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/reader/JsonReader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/writer/JsonWriter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="72587607-207c-46e3-8054-08e10c2acaf5" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/input/moozeek/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacrossing/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/javacrossing/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacrossing/OutputCreator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/javacrossing/OutputCreator.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacrossing/parser/OldParser.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/javacrossing/parser/OldParser.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacrossing/reader/FileReader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/javacrossing/reader/FileReader.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/javacrossing/reader/StringFileContent.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/javacrossing/reader/StringFileContent.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/FrameManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/FrameManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/PlotlyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/PlotlyController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Frame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Frame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/JavaClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/JavaClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/parser/OutputCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/parser/OutputCreator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/moozeek/input.music" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/input.music" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/exceptions/DuplicateNameException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/exceptions/WrongNameException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/libs/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/src/main/java/libs/Node.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/visitors/PlayerVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/src/main/java/visitors/PlayerVisitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/moozeek/target/classes/exceptions/DuplicateNameException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/moozeek/target/classes/exceptions/WrongNameException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/moozeek/target/classes/libs/Node.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/moozeek/target/classes/libs/Tokenizer.class" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/target/classes/libs/Tokenizer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/moozeek/target/classes/visitors/PlayerVisitor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/javacrossing/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/javacrossing/OutputCreator.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/javacrossing/parser/OldParser.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/javacrossing/reader/FileReader.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/javacrossing/reader/StringFileContent.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +103,7 @@
       <recent name="$PROJECT_DIR$/src" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.PlotlyMain">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="javacrossing" />
@@ -119,8 +120,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.PlotlyMain" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.PlotlyMain" />
       </list>
     </recent_temporary>
   </component>
