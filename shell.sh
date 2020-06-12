@@ -23,4 +23,7 @@ cd ./javacrossing-react/
 
 echo "Starting front-end"
 
+# uncomment the line beflow if it is first time running this program to install npm dependencies
+#npm install
+
 npm start
