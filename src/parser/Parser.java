@@ -72,8 +72,8 @@ public class Parser {
         // split into string to parse each line
         String javaStringAry[] = javaString.split("\\r?\\n");
         String outputString = processEachLine(javaStringAry);
-        // TODO remove this only for testing
-        System.out.println(outputString);
+//        // TODO remove this only for testing
+//        System.out.println(outputString);
         return outputString;
     }
 

@@ -31,6 +31,7 @@ public class FrameManager {
 
     public void scaleDataPoint(int index) {
         double scaledSize = this.size.get(index) + SIZE_SCALE_FACTOR;
+        scaledSize = Math.round(scaledSize * 10)/10.0;
         this.size.set(index, scaledSize);
     }
 
