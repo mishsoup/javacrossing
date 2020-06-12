@@ -1,6 +1,14 @@
+import parser.Parser;
+import reader.FileReader;
+import reader.StringFileContent;
+import reader.StringReader;
+import writer.StringFileWriter;
+
+import java.util.Map;
+
 public class Main {
     public static void main(String[] args) {
-        /* Parser parser = new Parser();
+         Parser parser = new Parser();
         FileReader fileReader = new StringReader();
         StringFileWriter stringFileWriter = new StringFileWriter();
 
@@ -16,6 +24,6 @@ public class Main {
 
         // debug Point
         System.out.println("END");
-         */
+
     }
 }
