@@ -20,50 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="72587607-207c-46e3-8054-08e10c2acaf5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/input/moozeek/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/input.music" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/input.music" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/BASEKEY.java" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/BASEKEY.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/BASESOUND.java" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/BASESOUND.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/BEAT.java" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/BEAT.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/BPM.java" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/BPM.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/CHORD.java" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/CHORD.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/CHORDPROGRESSION.java" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/CHORDPROGRESSION.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/COMMENT.java" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/COMMENT.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/CONNECT.java" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/CONNECT.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/COUNTS.java" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/COUNTS.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/COUNTVALUE.java" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/COUNTVALUE.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/CREATE.java" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/CREATE.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/FUNC.java" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/FUNC.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/FUNCBODY.java" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/FUNCBODY.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/INSTRUCTION.java" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/INSTRUCTION.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/INSTRUMENT.java" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/INSTRUMENT.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/LAYER.java" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/LAYER.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/LENGTH.java" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/LENGTH.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/MELODY.java" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/MELODY.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/NAME.java" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/NAME.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/NOTE.java" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/NOTE.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/PLAY.java" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/PLAY.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/PROGRAM.java" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/PROGRAM.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/REST.java" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/REST.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/RUN.java" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/RUN.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/SOUND.java" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/SOUND.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/exceptions/DuplicateNameException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/exceptions/WrongNameException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/libs/MusicCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/src/main/java/libs/MusicCreator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/libs/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/src/main/java/libs/Node.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/libs/Tokenizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/src/main/java/libs/Tokenizer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/ui/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/src/main/java/ui/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/visitors/PlayerVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/src/main/java/visitors/PlayerVisitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/src/test/java/visitors/PlayerVisitorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/src/test/java/visitors/PlayerVisitorTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/target/classes/exceptions/DuplicateNameException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/target/classes/exceptions/WrongNameException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/target/classes/libs/Node.class" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/target/classes/libs/Node.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/target/classes/libs/Tokenizer.class" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/target/classes/libs/Tokenizer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input/moozeek/target/classes/visitors/PlayerVisitor.class" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/target/classes/visitors/PlayerVisitor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javacrossing-react/src/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/javacrossing-react/src/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shell.sh" beforeDir="false" afterPath="$PROJECT_DIR$/shell.sh" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,14 +79,14 @@
     <property name="settings.editor.selected.configurable" value="Errors" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/input/moozeek/src/main/java/ui" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\ryanj\Documents\git\cs-410\javacrossing" />
       <recent name="C:\Users\ryanj\Documents\git\cs-410\javacrossing\input" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/input/moozeek/src/main/java/ui" />
     </key>
   </component>
   <component name="RunManager" selected="Application.PlotlyMain">
@@ -164,6 +122,7 @@
       <option name="presentableId" value="Default" />
       <updated>1591409722775</updated>
       <workItem from="1591906884758" duration="3431000" />
+      <workItem from="1592005108792" duration="829000" />
     </task>
     <task id="LOCAL-00001" summary="reafcatored parser and added citation for where the regex was found">
       <created>1591569950642</created>
