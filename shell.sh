@@ -5,6 +5,10 @@ echo "Code has been injected into the input project"
 
 cd ./input/moozeek/
 
+find . -name "*.java" > sources.txt
+
+javac -target 8 -source 8 -classpath ./target/classes:./musicDependency/jfugue-5.0.9.jar -d target/classes/  @sources.txt
+
 java -Dfile.encoding=UTF-8 -classpath ./target/classes:./musicDependency/jfugue-5.0.9.jar ui.Main
 
 echo "Injected code finished running"
