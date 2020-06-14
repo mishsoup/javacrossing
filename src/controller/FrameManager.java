@@ -93,6 +93,12 @@ public class FrameManager {
         JSONArray framesJSONArray = framesToJSONArray();
         JSONObject framesObject = new JSONObject();
 
+        if (isScaledOnTime) {
+            framesObject.put("isTime", true);
+        } else {
+            framesObject.put("isTime", false);
+        }
+
         framesObject.put("results", framesJSONArray);
         JsonWriter.writeFile(fileName, framesObject);
     }
