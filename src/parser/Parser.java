@@ -81,15 +81,24 @@ public class Parser {
         StringBuilder outputString = new StringBuilder("");
         for (int i = 0; i < javaStringAry.length; i++) {
             String currentLine = javaStringAry[i];
+            String nextLine = null;
+            if ((i+1) < javaStringAry.length)
+            {
+                nextLine = javaStringAry[i+1];
+            }
             Pattern pattern = Pattern.compile(regexForClass);
             Matcher classM = pattern.matcher(currentLine);
             Pattern patternFunc = Pattern.compile(regexForFunc);
             Matcher funcM = patternFunc.matcher(currentLine);
+            Pattern SuperPattern = Pattern.compile("super\\(.*\\)");
+            Matcher funcMSuper = SuperPattern.matcher(currentLine);
             // regex taken from stack over flow post
             // https://stackoverflow.com/questions/18037179/check-if-the-line-contains
             Pattern patternComment = Pattern.compile("//.*|/\\*((.|\\n)(?!=*/))+\\*/");
             Matcher funcComment = patternComment.matcher(currentLine);
-            if (funcComment.find()) {
+            if (funcMSuper.find()) {
+                outputString.append(processSuper(currentLine) + "\n");
+            } else if (funcComment.find()) {
                 outputString.append(currentLine + "\n");
             } else if (classM.find()) {
                 className = findClassName(currentLine);
@@ -98,6 +107,12 @@ public class Parser {
             } else if (funcM.find() && !stillInFunCall &&
                     currentLine.contains("{") && !currentLine.contains("if")
                     && !currentLine.contains("while") && !currentLine.contains("for")) {
+                Pattern SuperPattern2 = Pattern.compile("super\\(.*\\)");
+                Matcher funcMSuper2 = SuperPattern2.matcher(currentLine);
+                if (funcMSuper2.find()) {
+                    funcName = findFunctionName(currentLine);
+                    continue;
+                }
                 outputString.append(processFuncNameFound(currentLine) + "\n");
             } else if (stillInFunCall){
                 outputString.append(processStillInFunc(currentLine) + "\n");
@@ -106,6 +121,20 @@ public class Parser {
             }
         }
         return outputString.toString();
+    }
+
+    private String processSuper(String currentLine) {
+        stillInFunCall = true;
+        currentLine = currentLine + "\n" + makeStartJSONCode();
+        currentLine = checkHasReturnAndAddEndJSON(currentLine);
+        processBrackets(currentLine);
+        currentLine = checkEndBracketAndAddEndJSON(currentLine);
+
+        // end of function parsing
+        if (countOfBracket == 0 ){
+            resetFuncVars();
+        }
+        return currentLine;
     }
 
     private String processStillInFunc(String currentLine) {
