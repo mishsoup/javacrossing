@@ -8,6 +8,8 @@ public class JavaFunctions {
     private long totalTime;
     private int index;
 
+    private int startEndIndex;
+
     public String getName() {
         return name;
     }
@@ -16,10 +18,12 @@ public class JavaFunctions {
         return totalTime;
     }
 
-    public long updateTotalTime(long newTimeSpent) {
+    public long increaseTotalTime(long newTimeSpent) {
         totalTime += newTimeSpent;
         return totalTime;
     }
+
+    public void updateTotalTime(long newTotalTime) { totalTime = newTotalTime;}
 
     public int getNumOfOccurence() {
         return numOfOccurence;
@@ -33,6 +37,8 @@ public class JavaFunctions {
         this.entryTime = entryTime;
         this.index = index;
         this.totalTime = 0;
+
+        this.startEndIndex = 1;
     }
 
     public int getIndex() {
@@ -46,4 +52,9 @@ public class JavaFunctions {
     public void incrementOccurence() {
         this.numOfOccurence += 1;
     }
+
+    public int getStartEndIndex() {return startEndIndex;}
+    public void increaseStartEndIndex() {startEndIndex += 1;}
+    public void decreaseStartEndIndex() {startEndIndex -= 1;}
+    public boolean isFunEnd() {return startEndIndex == 0;}
 }

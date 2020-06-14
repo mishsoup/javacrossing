@@ -16,14 +16,18 @@ public class FrameManager {
     private List<Double> size = new ArrayList<>();
     private List<String> colors = new ArrayList<>();
     private List<String> texts = new ArrayList<>();
-
     private List<Frame> frames = new ArrayList<>();
+    private boolean isScaledOnTime;
 
     // new list to keep track of which function maps to which index in the text array
     private HashMap<String,Integer> classFuncToTextMap = new HashMap<>();
 
     private final double SIZE_SCALE_FACTOR = 0.2;
     private final double DEFAULT_SIZE = 10;
+
+    public FrameManager(boolean isScaledOnTime) {
+        this.isScaledOnTime = isScaledOnTime;
+    }
 
     public void addDataPoint(JavaClass jClass, String text, String funcName) {
         xAxis.add(jClass.getName());
@@ -53,7 +57,29 @@ public class FrameManager {
 
     public void scaleDataPoint(int index) {
         double scaledSize = this.size.get(index) + SIZE_SCALE_FACTOR;
-        scaledSize = Math.round(scaledSize * 10)/10.0;
+        scaledSize = Math.round(scaledSize * 10) / 10.0;
+        this.size.set(index, scaledSize);
+    }
+
+    public void scaleDataPointTime(int index, long totalTime) {
+        // default 10
+        double spendTime = (double) totalTime;
+        double scaledSize;
+        // 10
+        if (spendTime == 0) {
+            scaledSize = DEFAULT_SIZE;
+            // 10 - 20
+        } else if (spendTime < 100) {
+            scaledSize = DEFAULT_SIZE + spendTime / 10;
+            // 20 - 40
+        } else if (spendTime < 1000) {
+            scaledSize = DEFAULT_SIZE * 2 + spendTime / 45;
+            // 40 - 100
+        } else if (spendTime < 10000) {
+            scaledSize = DEFAULT_SIZE * 4 + spendTime / 167;
+        } else {
+            scaledSize = DEFAULT_SIZE * 10 + spendTime / 440;
+        }
         this.size.set(index, scaledSize);
     }
 
@@ -66,6 +92,12 @@ public class FrameManager {
     public void saveFramesToFile(String fileName) {
         JSONArray framesJSONArray = framesToJSONArray();
         JSONObject framesObject = new JSONObject();
+
+        if (isScaledOnTime) {
+            framesObject.put("isTime", true);
+        } else {
+            framesObject.put("isTime", false);
+        }
 
         framesObject.put("results", framesJSONArray);
         JsonWriter.writeFile(fileName, framesObject);

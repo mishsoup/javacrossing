@@ -28,7 +28,9 @@ public class JavaClass {
 
     public void updateFunction(String fxnName, long entryTime) {
         JavaFunctions jF = this.functions.get(fxnName);
-        jF.setEntryTime(entryTime);
+
+        jF.increaseStartEndIndex();
+
         jF.incrementOccurence();
     }
 
