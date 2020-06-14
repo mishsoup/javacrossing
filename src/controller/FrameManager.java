@@ -62,7 +62,24 @@ public class FrameManager {
     }
 
     public void scaleDataPointTime(int index, long totalTime) {
-        double scaledSize = (double) (DEFAULT_SIZE + (totalTime / 100));
+        // default 10
+        double spendTime = (double) totalTime;
+        double scaledSize;
+        // 10
+        if (spendTime == 0) {
+            scaledSize = DEFAULT_SIZE;
+            // 10 - 20
+        } else if (spendTime < 100) {
+            scaledSize = DEFAULT_SIZE + spendTime / 10;
+            // 20 - 40
+        } else if (spendTime < 1000) {
+            scaledSize = DEFAULT_SIZE * 2 + spendTime / 45;
+            // 40 - 100
+        } else if (spendTime < 10000) {
+            scaledSize = DEFAULT_SIZE * 4 + spendTime / 167;
+        } else {
+            scaledSize = DEFAULT_SIZE * 10 + spendTime / 440;
+        }
         this.size.set(index, scaledSize);
     }
 
