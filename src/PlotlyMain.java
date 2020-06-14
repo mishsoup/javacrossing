@@ -44,7 +44,7 @@ public class PlotlyMain {
         String fileNameTime = "data_time.json";
         writer.createFile(fileName);
         writer.createFile(fileNameTime);
-        plotlyController.savePlotlyFramesToFile(fileName, fileNameTime);
+        plotlyController.savePlotlyFramesToFile(fileName);
         System.out.println("END FOR PLOTLY");
     }
 }

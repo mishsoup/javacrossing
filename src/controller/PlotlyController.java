@@ -6,6 +6,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import util.Color;
 import util.TextGenerator;
+import writer.JsonWriter;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -80,9 +81,11 @@ public class PlotlyController {
         fm.saveFrame();
     }
 
-    public void savePlotlyFramesToFile(String fileName, String fileNameTime) {
-        fm.saveFramesToFile(fileName);
-        fmOnTime.saveFramesToFile(fileNameTime);
+    public void savePlotlyFramesToFile(String fileName) {
+        JSONObject framesObject = new JSONObject();
+        fm.saveFramesToFile(framesObject);
+        fmOnTime.saveFramesToFile(framesObject);
+        JsonWriter.writeFile(fileName, framesObject);
     }
 
     private void handleEndingCall(JavaClass javaClass, String javaFxnName, long javaFxnTime) {

@@ -4,7 +4,6 @@ import model.Frame;
 import model.JavaClass;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import writer.JsonWriter;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -89,18 +88,15 @@ public class FrameManager {
     }
 
 
-    public void saveFramesToFile(String fileName) {
+    public void saveFramesToFile(JSONObject jo) {
         JSONArray framesJSONArray = framesToJSONArray();
-        JSONObject framesObject = new JSONObject();
-
+        String graphName;
         if (isScaledOnTime) {
-            framesObject.put("isTime", true);
+            graphName = "spendTime";
         } else {
-            framesObject.put("isTime", false);
+            graphName = "numberCall";
         }
-
-        framesObject.put("results", framesJSONArray);
-        JsonWriter.writeFile(fileName, framesObject);
+        jo.put(graphName, framesJSONArray);
     }
 
     private JSONArray framesToJSONArray() {
