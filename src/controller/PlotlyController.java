@@ -1,15 +1,12 @@
 package controller;
 
-import model.Frame;
 import model.JavaClass;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import util.Color;
 import util.TextGenerator;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 
@@ -17,6 +14,7 @@ public class PlotlyController {
 
 
     private FrameManager fm;
+    private FrameManager fmOnTime;
     private Color colorManager;
     private JSONArray json;
 
@@ -25,59 +23,74 @@ public class PlotlyController {
     private final String JSON_FXNTIME = "time";
 
     private Map<String, JavaClass> javaClassesMap = new HashMap<>();
-    private List<Frame> frames = new ArrayList<>();
-
     private int currentIndex = 0;
+    private int numberOfUpdates = 0;
+    private int frameNumberThreshold;
 
-    public PlotlyController(JSONArray jsonArray) {
+    public PlotlyController(JSONArray jsonArray, int frameNumberThreshold) {
         json = jsonArray;
-        fm = new FrameManager();
+        fm = new FrameManager(false);
+        fmOnTime = new FrameManager(true);
         colorManager = new Color();
+        this.frameNumberThreshold = frameNumberThreshold;
     }
 
     public void drawPlotly() {
         for (Object jsonObject : this.json) {
-            // System.out.println(jsonObject.toString());
             JSONObject jsn  = (JSONObject) jsonObject;
-
+            // information extracted  from json
             String javaClassName = jsn.getString(JSON_CLASSNAME);
             String javaFxnName = jsn.getString(JSON_FXNNAME);
+            String parsedJavaFxnName = parseFunctionString(javaFxnName);
             long javaFxnTime = Long.parseLong(jsn.getString(JSON_FXNTIME));
-
             JavaClass javaClass = getOrAddJavaClass(javaClassName);
 
-            // ignore ending call
-            if (isEndingFunction(javaFxnName)) {
-                javaFxnName = parseFunctionString(javaFxnName);
-                long entryTime = javaClass.getFunction(javaFxnName).getEntryTime();
-                long timeUsed = javaFxnTime - entryTime;
-                long totalTime = javaClass.getFunction(javaFxnName).updateTotalTime(timeUsed);
-                fm.upDateTextWithTime(javaClass, javaFxnName, totalTime);
-                continue;
-            }
 
-            javaFxnName = parseFunctionString(javaFxnName);
-            if (javaClass.isFunctionMember(javaFxnName)) {
-                javaClass.updateFunction(javaFxnName, javaFxnTime);
-                String hoverText =generateText(javaClass, javaFxnName);
-                fm.updateDataPoint(javaClass,hoverText, javaFxnName);
-                fm.scaleDataPoint(javaClass.getFunction(javaFxnName).getIndex());
+            numberOfUpdates++;
+            if (isEndingFunction(javaFxnName)) {
+                handleEndingCall(javaClass, parsedJavaFxnName, javaFxnTime);
+                fmOnTime.saveFrame();
+                continue;
+            } else if (javaClass.isFunctionMember(parsedJavaFxnName)) {
+                javaClass.updateFunction(parsedJavaFxnName, javaFxnTime);
+                String hoverText = generateText(javaClass, parsedJavaFxnName);
+
+                fm.updateDataPoint(javaClass,hoverText, parsedJavaFxnName);
+                fm.scaleDataPoint(javaClass.getFunction(parsedJavaFxnName).getIndex());
+
+                fmOnTime.updateDataPoint(javaClass, hoverText, parsedJavaFxnName);
             } else {
                 // create function entry
-                javaClass.addFunction(javaFxnName, currentIndex, javaFxnTime);
+                javaClass.addFunction(parsedJavaFxnName, currentIndex, javaFxnTime);
                 currentIndex++;
-
                 // generate text when hovered
-                String hoverText =generateText(javaClass, javaFxnName);
-                fm.addDataPoint(javaClass,hoverText, javaFxnName);
+                String hoverText = generateText(javaClass, parsedJavaFxnName);
+
+                // update each frame managers
+                fm.addDataPoint(javaClass, hoverText, parsedJavaFxnName);
+                fmOnTime.addDataPoint(javaClass, hoverText, parsedJavaFxnName);
             }
-            fm.saveFrame();
+
+            if (numberOfUpdates >= frameNumberThreshold) {
+                fm.saveFrame();
+                numberOfUpdates = 0;
+            }
         }
         fm.saveFrame();
     }
 
-    public void savePlotlyFramesToFile(String fileName) {
+    public void savePlotlyFramesToFile(String fileName, String fileNameTime) {
         fm.saveFramesToFile(fileName);
+        fmOnTime.saveFramesToFile(fileNameTime);
+    }
+
+    private void handleEndingCall(JavaClass javaClass, String javaFxnName, long javaFxnTime) {
+        long entryTime = javaClass.getFunction(javaFxnName).getEntryTime();
+        long timeUsed = javaFxnTime - entryTime;
+        long totalTime = javaClass.getFunction(javaFxnName).updateTotalTime(timeUsed);
+        fm.upDateTextWithTime(javaClass, javaFxnName, totalTime);
+        fmOnTime.upDateTextWithTime(javaClass, javaFxnName, totalTime);
+        fmOnTime.scaleDataPointTime(javaClass.getFunction(javaFxnName).getIndex(), totalTime);
     }
 
     private boolean isEndingFunction(String functionName) {

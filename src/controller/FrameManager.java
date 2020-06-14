@@ -16,14 +16,18 @@ public class FrameManager {
     private List<Double> size = new ArrayList<>();
     private List<String> colors = new ArrayList<>();
     private List<String> texts = new ArrayList<>();
-
     private List<Frame> frames = new ArrayList<>();
+    private boolean isScaledOnTime;
 
     // new list to keep track of which function maps to which index in the text array
     private HashMap<String,Integer> classFuncToTextMap = new HashMap<>();
 
     private final double SIZE_SCALE_FACTOR = 0.2;
     private final double DEFAULT_SIZE = 10;
+
+    public FrameManager(boolean isScaledOnTime) {
+        this.isScaledOnTime = isScaledOnTime;
+    }
 
     public void addDataPoint(JavaClass jClass, String text, String funcName) {
         xAxis.add(jClass.getName());
@@ -53,7 +57,12 @@ public class FrameManager {
 
     public void scaleDataPoint(int index) {
         double scaledSize = this.size.get(index) + SIZE_SCALE_FACTOR;
-        scaledSize = Math.round(scaledSize * 10)/10.0;
+        scaledSize = Math.round(scaledSize * 10) / 10.0;
+        this.size.set(index, scaledSize);
+    }
+
+    public void scaleDataPointTime(int index, long totalTime) {
+        double scaledSize = (double) (DEFAULT_SIZE + (totalTime / 100));
         this.size.set(index, scaledSize);
     }
 

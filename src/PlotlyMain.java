@@ -18,6 +18,8 @@ public class PlotlyMain {
         String[] childPath = input.list();
         if (childPath == null) throw new RuntimeException("Can not find the input project path");
         List<String> childPathList = Arrays.asList(childPath);
+
+
         //TODO .DS_Store which is special file in Mac, we try to omit it
         StringBuffer subPathOfInput = new StringBuffer();
         childPathList.forEach( x -> {
@@ -28,17 +30,21 @@ public class PlotlyMain {
 
         if ( subPathOfInput.length() == 0) throw new RuntimeException("Can not find the input Project path");
         String dataPath = inputDic + "/" +  subPathOfInput + "/result.txt";
+
         // read the data
-        Map<String, JSONArray> jsonMap =  jr.extract(dataPath);
+        // Map<String, JSONArray> jsonMap =  jr.extract(dataPath);
+        Map<String, JSONArray> jsonMap =  jr.extract("result.txt");
         JSONArray parsedResults = jsonMap.get(JsonReader.RESULT_KEY);
 
-        PlotlyController plotlyController = new PlotlyController(parsedResults);
+        PlotlyController plotlyController = new PlotlyController(parsedResults, 1);
         plotlyController.drawPlotly();
 
         JsonWriter writer = new JsonWriter();
         String fileName = "data.json";
+        String fileNameTime = "data_time.json";
         writer.createFile(fileName);
-        plotlyController.savePlotlyFramesToFile(fileName);
+        writer.createFile(fileNameTime);
+        plotlyController.savePlotlyFramesToFile(fileName, fileNameTime);
         System.out.println("END FOR PLOTLY");
     }
 }
