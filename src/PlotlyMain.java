@@ -32,7 +32,8 @@ public class PlotlyMain {
         String dataPath = inputDic + "/" +  subPathOfInput + "/result.txt";
 
         // read the data
-        // Map<String, JSONArray> jsonMap =  jr.extract(dataPath);
+        //Map<String, JSONArray> jsonMap =  jr.extract(dataPath);
+        // TODO HERE MAYBE cause problem KEVIN (not sure)
         Map<String, JSONArray> jsonMap =  jr.extract("result.txt");
         JSONArray parsedResults = jsonMap.get(JsonReader.RESULT_KEY);
 
@@ -41,9 +42,9 @@ public class PlotlyMain {
 
         JsonWriter writer = new JsonWriter();
         String fileName = "data.json";
-        String fileNameTime = "data_time.json";
+        //String fileNameTime = "data_time.json";
         writer.createFile(fileName);
-        writer.createFile(fileNameTime);
+        //writer.createFile(fileNameTime);
         plotlyController.savePlotlyFramesToFile(fileName);
         System.out.println("END FOR PLOTLY");
     }
