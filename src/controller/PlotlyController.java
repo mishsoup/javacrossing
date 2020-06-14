@@ -1,6 +1,7 @@
 package controller;
 
 import model.JavaClass;
+import model.JavaFunctions;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import util.Color;
@@ -45,8 +46,8 @@ public class PlotlyController {
             long javaFxnTime = Long.parseLong(jsn.getString(JSON_FXNTIME));
             JavaClass javaClass = getOrAddJavaClass(javaClassName);
 
-
             numberOfUpdates++;
+
             if (isEndingFunction(javaFxnName)) {
                 handleEndingCall(javaClass, parsedJavaFxnName, javaFxnTime);
                 fmOnTime.saveFrame();
@@ -85,12 +86,16 @@ public class PlotlyController {
     }
 
     private void handleEndingCall(JavaClass javaClass, String javaFxnName, long javaFxnTime) {
-        long entryTime = javaClass.getFunction(javaFxnName).getEntryTime();
-        long timeUsed = javaFxnTime - entryTime;
-        long totalTime = javaClass.getFunction(javaFxnName).updateTotalTime(timeUsed);
-        fm.upDateTextWithTime(javaClass, javaFxnName, totalTime);
-        fmOnTime.upDateTextWithTime(javaClass, javaFxnName, totalTime);
-        fmOnTime.scaleDataPointTime(javaClass.getFunction(javaFxnName).getIndex(), totalTime);
+        JavaFunctions jf = javaClass.getFunction(javaFxnName);
+        jf.decreaseStartEndIndex();
+        if (jf.isFunEnd()) {
+            long entryTime = javaClass.getFunction(javaFxnName).getEntryTime();
+            long timeUsed = javaFxnTime - entryTime;
+            long totalTime = javaClass.getFunction(javaFxnName).increaseTotalTime(timeUsed);
+            fm.upDateTextWithTime(javaClass, javaFxnName, totalTime);
+            fmOnTime.upDateTextWithTime(javaClass, javaFxnName, totalTime);
+            fmOnTime.scaleDataPointTime(javaClass.getFunction(javaFxnName).getIndex(), totalTime);
+        }
     }
 
     private boolean isEndingFunction(String functionName) {
