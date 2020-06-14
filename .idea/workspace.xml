@@ -21,10 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="72587607-207c-46e3-8054-08e10c2acaf5" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/input/moozeek/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/input/moozeek/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/result.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/data.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/input/moozeek/input.music" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/input.music" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/BASEKEY.java" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/BASEKEY.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/BASESOUND.java" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/src/main/java/ast/BASESOUND.java" afterDir="false" />
@@ -55,6 +52,8 @@
       <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/exceptions/WrongNameException.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/libs/MusicCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/src/main/java/libs/MusicCreator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/libs/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/src/main/java/libs/Node.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/libs/Tokenizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/src/main/java/libs/Tokenizer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/ui/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/src/main/java/ui/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/input/moozeek/src/main/java/visitors/PlayerVisitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/src/main/java/visitors/PlayerVisitor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/input/moozeek/src/test/java/visitors/PlayerVisitorTest.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/input/moozeek/target/classes/ast/BASEKEY.class" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/target/classes/ast/BASEKEY.class" afterDir="false" />
@@ -90,6 +89,12 @@
       <change beforePath="$PROJECT_DIR$/input/moozeek/target/classes/ui/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/target/classes/ui/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/input/moozeek/target/classes/visitors/PlayerVisitor.class" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/target/classes/visitors/PlayerVisitor.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/input/moozeek/target/classes/visitors/Visitor.class" beforeDir="false" afterPath="$PROJECT_DIR$/input/moozeek/target/classes/visitors/Visitor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/javacrossing/PlotlyMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/javacrossing/PlotlyMain.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/javacrossing/controller/FrameManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/javacrossing/controller/FrameManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/javacrossing/controller/PlotlyController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/javacrossing/controller/PlotlyController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/javacrossing/model/JavaClass.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/javacrossing/model/JavaClass.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/javacrossing/model/JavaFunctions.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/javacrossing/model/JavaFunctions.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PlotlyMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PlotlyMain.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

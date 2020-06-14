@@ -32,9 +32,9 @@ public class PlotlyMain {
         String dataPath = inputDic + "/" +  subPathOfInput + "/result.txt";
 
         // read the data
-        //Map<String, JSONArray> jsonMap =  jr.extract(dataPath);
+        Map<String, JSONArray> jsonMap =  jr.extract(dataPath);
         // TODO HERE MAYBE cause problem KEVIN (not sure)
-        Map<String, JSONArray> jsonMap =  jr.extract("result.txt");
+        // Map<String, JSONArray> jsonMap =  jr.extract("result.txt");
         JSONArray parsedResults = jsonMap.get(JsonReader.RESULT_KEY);
 
         PlotlyController plotlyController = new PlotlyController(parsedResults, 1);

@@ -21,8 +21,6 @@ echo "Generated JSON input for front end"
 
 cp data.json ./javacrossing-react/src/data.json
 
-cp data_time.json ./javacrossing-react/src/data_time.json
-
 echo "Copied the JSON input for front end to javacrossing-react"
 
 cd ./javacrossing-react/
