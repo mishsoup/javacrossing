@@ -1,4 +1,8 @@
 #!/bin/sh
+find ./src -name "*.java" > sources.txt
+
+javac -target 8 -source 8 -classpath ./out/production/javacrossing:./dependency/json-20200518.jar -d ./out/production/javacrossing/  @sources.txt
+
 java  -Dfile.encoding=UTF-8 -classpath ./out/production/javacrossing:./dependency/json-20200518.jar Main
 
 echo "Code has been injected into the input project"
