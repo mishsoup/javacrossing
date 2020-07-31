@@ -17,5 +17,3 @@ Java Crossing is a visualization tool that gives you general inspection of how e
 5. Run the command “./shell.sh”
 
 
-**Link to our documentation**
-https://docs.google.com/document/d/1WArhssnA0jFrexvdJidhP7iZKuTCZdLCocmFLPkeLPc/edit#heading=h.xvir2ad82u5d
