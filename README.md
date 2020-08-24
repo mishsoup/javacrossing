@@ -2,6 +2,7 @@
 
 ![javacrossing](https://user-images.githubusercontent.com/31344971/84590617-fdca4480-adec-11ea-957b-880ffcc03dce.png)
 
+
 Java Crossing is a visualization tool that gives you general inspection of how each function and class contribute to the whole project. This is achieved by running dynamic analysis on your Java code and ouputting the results in an animated graph.
 
 
@@ -16,4 +17,7 @@ Java Crossing is a visualization tool that gives you general inspection of how e
 4. Cd back into javacrossing folder and type in “chmod +x shell.sh” into terminal
 5. Run the command “./shell.sh”
 
+<br>
 
+**DEMO:**
+<img width="1223" alt="Screen Shot 2020-08-23 at 9 06 55 PM" src="https://user-images.githubusercontent.com/31344971/91002900-a1ba3400-e584-11ea-8a0f-5a2b13f0d81f.png">
